@@ -1,0 +1,41 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="HZ-Zen">
+  <defs>
+    <linearGradient id="hz-aurora" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3DDAC5"></stop>
+      <stop offset="50%" stop-color="#22D3EE"></stop>
+      <stop offset="100%" stop-color="#8B5CF6"></stop>
+    </linearGradient>
+    <linearGradient id="hz-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3DDAC5"></stop>
+      <stop offset="100%" stop-color="#22D3EE"></stop>
+    </linearGradient>
+    <radialGradient id="hz-core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7DF5E4"></stop>
+      <stop offset="100%" stop-color="#14B8A6"></stop>
+    </radialGradient>
+  </defs>
+
+  
+  <circle cx="60" cy="60" r="52" fill="none" stroke="url(#hz-aurora)" stroke-width="4" stroke-linecap="round" stroke-dasharray="300 327" stroke-dashoffset="-12" transform="rotate(-18 60 60)"></circle>
+
+  
+  <g fill="url(#hz-ring)">
+    <rect x="22" y="52" width="3" height="16" rx="1.5"></rect>
+    <rect x="28" y="44" width="3" height="32" rx="1.5"></rect>
+    <rect x="34" y="38" width="3" height="44" rx="1.5"></rect>
+    <rect x="40" y="46" width="3" height="28" rx="1.5"></rect>
+  </g>
+
+  
+  <g fill="url(#hz-ring)" opacity="0.85">
+    <rect x="77" y="46" width="3" height="28" rx="1.5"></rect>
+    <rect x="83" y="38" width="3" height="44" rx="1.5"></rect>
+    <rect x="89" y="44" width="3" height="32" rx="1.5"></rect>
+    <rect x="95" y="52" width="3" height="16" rx="1.5"></rect>
+  </g>
+
+  
+  <circle cx="60" cy="60" r="9" fill="url(#hz-core)"></circle>
+  <circle cx="60" cy="60" r="3" fill="#02060E"></circle>
+</svg>

@@ -1,0 +1,22 @@
+# System
+.DS_Store
+Thumbs.db
+
+# AI session notes
+CLAUDE-2.md
+Claude-2.md.pdf
+
+# Apple documents (not web assets)
+*.pages
+
+# Raw video recordings not used by the site
+Healthy\ Eat\'s\ (Latest\ iOS\ Version)\ 3.mp4
+Healthy\ Eat\'s\ (Latest\ iOS\ Version)\ 4.MP4
+Healthy\ Eat\'s\ (Latest\ iOS\ Version)\ 5.MP4
+he-app-demo.mp4
+
+# Unused brand files
+NC_Developer_Brand_Guidelines.png
+logo.jpg
+NC-Devs logo.png
+brand\ assets
