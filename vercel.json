@@ -14,13 +14,13 @@
       ]
     },
     {
-      "source": "/(.*.mp4)",
+      "source": "/he-app-demo-h264.mp4",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     },
     {
-      "source": "/(.*\\.(png|svg|jpg|jpeg|heic|webp|ico))",
+      "source": "/:image.(png|svg|jpg|jpeg|heic|webp|ico)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
