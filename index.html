@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neeka Chisholm | Founder & Lead Developer — NC-Developer, LLC</title>
-  <meta name="description" content="Neeka Chisholm is the CEO and Lead Developer at NC-Developer, LLC — a boutique mobile and web development studio turning bold ideas into powerful digital realities." />
-  <meta property="og:title" content="Neeka Chisholm | NC-Developer, LLC" />
-  <meta property="og:description" content="AI-Native. Ecosystem Ready. Radically Transparent. Boutique mobile & web development studio." />
+  <title>Neeka Chisholm | Founder & Lead Developer</title>
+  <meta name="description" content="Neeka Chisholm is a Founder & Lead Developer specializing in UI/UX design, brand identity, and full-stack development — turning bold ideas into powerful digital products, end to end." />
+  <meta property="og:title" content="Neeka Chisholm | Founder & Lead Developer" />
+  <meta property="og:description" content="AI-Native. Ecosystem Ready. Radically Transparent. Digital product design, brand identity & full-stack development." />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="nc-computer-logo.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -87,18 +87,31 @@
     .nav-logo-text {
       font-family: 'Cinzel Decorative', serif;
       font-size: 13px; letter-spacing: 0.06em;
-      background: linear-gradient(105deg, #9A7A2E, #E8C96A, #9A7A2E);
+      background: linear-gradient(105deg, #C8A44A, #F5E8C0, #C8A44A);
       background-size: 200% auto;
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: goldShimmer 5s linear infinite;
       white-space: nowrap;
+      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5));
+      transition: filter 0.4s;
+    }
+    nav.scrolled .nav-logo-text {
+      background: linear-gradient(105deg, #5C4415, #A9822F, #5C4415);
+      background-size: 200% auto;
+      -webkit-background-clip: text; background-clip: text;
+      filter: none;
     }
     .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
     .nav-links a {
-      font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
-      color: var(--muted); text-decoration: none;
-      position: relative; transition: color 0.3s;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.95); text-decoration: none;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.55);
+      position: relative; transition: color 0.3s, text-shadow 0.3s;
+    }
+    nav.scrolled .nav-links a {
+      color: #362B21;
+      text-shadow: none;
     }
     .nav-links a::after {
       content: ''; position: absolute; bottom: -3px; left: 0;
@@ -315,14 +328,6 @@
       background: rgba(30,191,160,0.14);
       box-shadow: 0 6px 36px rgba(30,191,160,0.25);
     }
-    .hero-logo-float {
-      position: absolute; right: 6%; top: 50%; transform: translateY(-50%);
-      width: clamp(36px, 4vw, 60px);
-      pointer-events: none;
-      animation: logoSpin 30s linear infinite;
-      opacity: 0.7;
-      mix-blend-mode: multiply;
-    }
     @keyframes logoSpin {
       0%   { transform: translateY(-50%) rotate(0deg); }
       100% { transform: translateY(-50%) rotate(360deg); }
@@ -486,6 +491,34 @@
       transition: background 0.2s, border-color 0.2s;
     }
     .skill-chip:hover { background: rgba(30,191,160,0.18); border-color: rgba(30,191,160,0.5); color: var(--teal); }
+
+    /* ─── EXPERIENCE ─── */
+    #experience { background: var(--page-bg); }
+    .exp-timeline { margin-top: 56px; }
+    .exp-item {
+      display: grid; grid-template-columns: 170px 1fr; gap: 32px;
+      padding: 30px 0; border-bottom: 1px solid rgba(200,164,74,0.14);
+    }
+    .exp-item:first-child { padding-top: 0; }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-dates { font-size: 13px; color: var(--muted); letter-spacing: 0.04em; font-weight: 600; padding-top: 4px; }
+    .exp-role { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--cream); margin-bottom: 4px; }
+    .exp-org { font-size: 13px; color: var(--gold-dk); font-weight: 600; margin-bottom: 12px; letter-spacing: 0.02em; }
+    .exp-item ul { list-style: none; }
+    .exp-item li {
+      font-size: 14px; color: var(--muted); line-height: 1.7;
+      padding: 4px 0 4px 20px; position: relative;
+    }
+    .exp-item li::before { content: '→'; position: absolute; left: 0; color: var(--teal); font-size: 12px; }
+    .exp-edu {
+      margin-top: 48px; padding-top: 40px;
+      border-top: 1px solid rgba(200,164,74,0.18);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+    }
+    .exp-edu-item h4 { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--cream); margin-bottom: 4px; }
+    .exp-edu-item p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .exp-cert { margin-top: 28px; font-size: 13px; color: var(--muted); line-height: 1.7; }
+    .exp-cert strong { color: var(--gold-dk); }
 
     /* ─── SERVICES ─── */
     #services { background: var(--page-bg); }
@@ -874,8 +907,9 @@
       nav.scrolled { padding: 12px 24px; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
-      .hero-logo-float { display: none; }
       .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .exp-item { grid-template-columns: 1fr; gap: 6px; }
+      .exp-edu { grid-template-columns: 1fr; gap: 20px; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .stat-item:nth-child(2) { border-right: none; }
       .services-grid { grid-template-columns: 1fr; }
@@ -940,6 +974,100 @@
       font-size: 32px; color: var(--muted);
       cursor: pointer; background: none; border: none;
     }
+
+    /* ─── MY BOT WIDGET ─── */
+    #bot-fab {
+      position: fixed; right: 24px; bottom: 24px; z-index: 1200;
+      width: 68px; height: 68px; border-radius: 50%;
+      border: none; padding: 0; cursor: pointer;
+      background: transparent;
+      box-shadow: 0 10px 34px rgba(154,122,46,0.4), 0 2px 10px rgba(0,0,0,0.18);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+      animation: botFabFloat 3.4s ease-in-out infinite;
+    }
+    #bot-fab img { width: 100%; height: 100%; border-radius: 50%; display: block; }
+    #bot-fab:hover { transform: scale(1.08); box-shadow: 0 14px 44px rgba(154,122,46,0.5), 0 2px 14px rgba(0,0,0,0.22); }
+    #bot-fab.open { animation: none; }
+    @keyframes botFabFloat {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-7px); }
+    }
+    .bot-fab-ping {
+      position: absolute; inset: -4px; border-radius: 50%;
+      border: 2px solid var(--gold);
+      opacity: 0; animation: botPing 2.8s ease-out infinite;
+      pointer-events: none;
+    }
+    @keyframes botPing {
+      0%   { transform: scale(0.9); opacity: 0.55; }
+      100% { transform: scale(1.35); opacity: 0; }
+    }
+    #bot-panel {
+      position: fixed; right: 24px; bottom: 104px; z-index: 1200;
+      width: 320px; max-width: calc(100vw - 48px);
+      background: var(--card);
+      border: 1px solid rgba(200,164,74,0.25);
+      border-radius: 20px;
+      box-shadow: 0 20px 70px rgba(0,0,0,0.22), 0 4px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+      opacity: 0; transform: translateY(16px) scale(0.97);
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    #bot-panel.open { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+    .bot-panel-header {
+      display: flex; align-items: center; gap: 12px;
+      padding: 16px 18px;
+      background: linear-gradient(135deg, var(--gold-dk), var(--gold));
+    }
+    .bot-panel-header img { width: 38px; height: 38px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.6); }
+    .bot-panel-title { flex: 1; }
+    .bot-panel-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 15px; color: var(--dark); }
+    .bot-panel-status { font-size: 11px; color: rgba(13,11,9,0.65); display: flex; align-items: center; gap: 5px; }
+    .bot-panel-status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal-dk); display: inline-block; }
+    .bot-panel-close { background: none; border: none; font-size: 20px; color: rgba(13,11,9,0.6); cursor: pointer; line-height: 1; padding: 4px; }
+    .bot-panel-body { padding: 18px; }
+    .bot-message {
+      background: var(--surface);
+      border: 1px solid rgba(200,164,74,0.16);
+      border-radius: 14px 14px 14px 4px;
+      padding: 12px 14px;
+      font-size: 13.5px; color: var(--cream);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .bot-actions { display: flex; flex-direction: column; gap: 10px; }
+    .bot-action-btn {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 14px; border-radius: 12px;
+      text-decoration: none; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.01em;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .bot-action-btn:hover { transform: translateY(-2px); }
+    .bot-action-primary {
+      background: linear-gradient(135deg, var(--teal-dk), var(--teal));
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(30,191,160,0.3);
+    }
+    .bot-action-primary:hover { box-shadow: 0 8px 28px rgba(30,191,160,0.45); }
+    .bot-action-secondary {
+      background: var(--card-lt);
+      border: 1px solid rgba(200,164,74,0.3);
+      color: var(--cream);
+    }
+    .bot-action-secondary:hover { border-color: rgba(200,164,74,0.55); box-shadow: 0 6px 20px rgba(200,164,74,0.18); }
+    .bot-action-icon { font-size: 17px; }
+    .bot-action-text { display: flex; flex-direction: column; gap: 1px; }
+    .bot-action-sub { font-size: 10.5px; font-weight: 500; opacity: 0.75; letter-spacing: 0.02em; }
+    .bot-panel-footnote {
+      margin-top: 14px; font-size: 11px; color: var(--muted);
+      text-align: center; line-height: 1.5;
+    }
+    @media (max-width: 600px) {
+      #bot-fab { right: 16px; bottom: 16px; width: 60px; height: 60px; }
+      #bot-panel { right: 16px; bottom: 88px; }
+    }
   </style>
 </head>
 <body>
@@ -948,23 +1076,24 @@
 <nav id="mobile-menu" class="mobile-menu">
   <button class="mobile-close" onclick="closeMobile()">✕</button>
   <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#experience" onclick="closeMobile()">Experience</a>
   <a href="#services" onclick="closeMobile()">Services</a>
   <a href="#projects" onclick="closeMobile()">Projects</a>
-  <a href="#difference" onclick="closeMobile()">Why NC-Dev</a>
+  <a href="#difference" onclick="closeMobile()">Why Me</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
 </nav>
 
 <!-- ─── NAV ─── -->
 <nav id="navbar">
   <a href="#hero" class="nav-logo">
-    <img src="nc-computer-logo.svg" alt="NC-Developer LLC" />
-    <span class="nav-logo-text">NC-Developer LLC</span>
+    <span class="nav-logo-text">Neeka Chisholm</span>
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#difference">Why NC-Dev</a></li>
+    <li><a href="#difference">Why Me</a></li>
     <li><a href="#presence">Links</a></li>
     <li><a href="#contact" class="btn-nav">Let's Talk</a></li>
   </ul>
@@ -992,13 +1121,10 @@
   <!-- Particles -->
   <div id="particles"></div>
 
-  <!-- Floating brand logo -->
-  <img src="NC-Developer, LLC-7.png" class="hero-logo-float" alt="NC-Developer LLC" />
-
   <div class="hero-content">
     <div class="hero-eyebrow">
       <div class="hero-eyebrow-dot"></div>
-      Founder &amp; Lead Developer · NC-Developer,
+      Founder &amp; Lead Developer
     </div>
 
     <h1 class="hero-name">
@@ -1007,7 +1133,7 @@
       <span class="hero-name-word" style="color:#fff">Chisholm</span>
     </h1>
 
-    <p class="hero-title">Boutique Mobile &amp; Web Development Studio</p>
+    <p class="hero-title">Digital Product Design &amp; Team Leadership</p>
 
     <p class="hero-tagline">
       Turning <strong>bold ideas</strong> into powerful digital realities.
@@ -1049,8 +1175,8 @@
         <div class="stat-label">Products Launched / In Dev</div>
       </div>
       <div class="stat-item reveal" style="transition-delay:0.3s">
-        <div class="stat-number" style="color:var(--teal)" data-count="12">0</div>
-        <div class="stat-label">K+ Community Members</div>
+        <div class="stat-number" style="color:var(--teal)" data-count="14">0</div>
+        <div class="stat-label">Years Career Experience</div>
       </div>
     </div>
   </div>
@@ -1062,7 +1188,7 @@
     <div class="about-grid">
       <div class="about-img-wrap reveal">
         <div class="about-img-frame">
-          <img class="about-photo" src="IMG_6591.HEIC" alt="Neeka Chisholm, CEO &amp; Lead Developer" />
+          <img class="about-photo" src="neeka-chisholm-photo.jpg" alt="Neeka Chisholm, Founder &amp; Lead Developer" />
           <div class="about-corner tl"></div>
           <div class="about-corner br"></div>
         </div>
@@ -1079,26 +1205,97 @@
           <em class="gold-text">experiences</em> that last
         </h2>
         <p class="reveal">
-          I'm <strong>Neeka Chisholm</strong> — Founder and Lead Developer at NC-Developer, LLC, a boutique mobile and web development studio that turns bold ideas into powerful digital realities.
+          I'm <strong>Neeka Chisholm</strong> — a founder and lead developer who takes full ownership of an idea from concept to market: setting the vision, making every product and design call, and driving execution with the discipline of a much larger team.
         </p>
         <p class="reveal">
-          With <strong>5+ years of experience</strong>, I specialize in taking projects from concept to launch — handling everything from native iOS applications to full-stack web platforms, UI/UX design, and brand identity.
+          With <strong>5+ years building digital products</strong> — and 14+ years across a career spanning entrepreneurship, logistics, and public-facing operations — I move fluidly between creative direction and technical execution: UI/UX design, brand identity, and full-stack development in Figma, Adobe Creative Suite, After Effects, HTML/CSS/JavaScript, Python, Node.js, and native iOS via Swift and Xcode.
         </p>
         <p class="reveal">
-          Beyond client work, I build <strong>owned products that solve real problems</strong>. My flagship app Healthy Eat's is live on the Apple App Store. I believe authentic work creates lasting impact, and my mission is simple: to build digital experiences as unique as the people behind them — beautifully and reliably.
+          I'm fluent in modern AI tooling — working daily across multiple large language models and agent ecosystems, Model Context Protocol (MCP) integrations, GitHub version control, and PostgreSQL. Beyond client work, I build <strong>owned products that solve real problems</strong>: my flagship app Healthy Eat's is live on the Apple App Store. My mission is simple — build digital experiences as unique as the people behind them, beautifully and reliably.
         </p>
         <div class="skills-list reveal">
           <span class="skill-chip">Full-Stack Web</span>
           <span class="skill-chip">Native iOS</span>
           <span class="skill-chip">UI/UX Design</span>
           <span class="skill-chip">Brand Identity</span>
-          <span class="skill-chip">AI Integration</span>
+          <span class="skill-chip">AI &amp; Multi-Agent Systems</span>
+          <span class="skill-chip">Figma</span>
+          <span class="skill-chip">Adobe Creative Suite</span>
+          <span class="skill-chip">PostgreSQL</span>
           <span class="skill-chip">E-Commerce</span>
           <span class="skill-chip">Health &amp; Wellness Tech</span>
           <span class="skill-chip">Responsive Design</span>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ─── EXPERIENCE ─── -->
+<section id="experience">
+  <div class="container">
+    <div style="max-width:560px">
+      <div class="section-label reveal">Experience</div>
+      <h2 class="section-title reveal">
+        A career built on<br/>
+        <span class="gold-text">ownership</span>
+      </h2>
+      <p class="section-sub reveal">From fleet logistics to founding a studio of one — every role sharpened the same instinct: take the wheel, deliver, build trust.</p>
+    </div>
+
+    <div class="exp-timeline">
+
+      <div class="exp-item reveal">
+        <div class="exp-dates">Jan 2022 – Present</div>
+        <div>
+          <div class="exp-role">Founder &amp; Lead Developer</div>
+          <div class="exp-org">Boutique Digital Product Studio</div>
+          <ul>
+            <li>Set the vision and own every product decision — wireframes, brand identity, high-fidelity prototypes, and developer handoff — across an extensive portfolio of delivered projects.</li>
+            <li>Run client engagements start to finish as the sole decision-maker — discovery, design, build, and launch — sustaining an outstanding client satisfaction record.</li>
+            <li>Work fluidly across multiple AI agents and large language models, Model Context Protocol (MCP) integrations, and GitHub-based version control to compress multi-week builds into days.</li>
+            <li>Convert ambiguous, non-technical goals into structured specifications and interactive prototypes stakeholders can act on immediately.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item reveal" style="transition-delay:0.1s">
+        <div class="exp-dates">Jan 2021 – Present</div>
+        <div>
+          <div class="exp-role">Freelance IT Contractor &amp; Entrepreneur</div>
+          <div class="exp-org">Shopper's Retreat, LLC</div>
+          <ul>
+            <li>Founded and led Shopper's Retreat, building streamlined processes and client-facing materials that raised project clarity and satisfaction across every engagement.</li>
+            <li>Championed accessibility-focused interface concepts for aging adults, including intuitive layouts for travel planning, shopping, and social engagement.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item reveal" style="transition-delay:0.2s">
+        <div class="exp-dates">Jan 2012 – Feb 2016</div>
+        <div>
+          <div class="exp-role">Project &amp; Fleet Manager</div>
+          <div class="exp-org">Dad's Delivery</div>
+          <ul>
+            <li>Directed fleet operations using logistics software to optimize routing and scheduling.</li>
+            <li>Presented client-facing updates on progress and milestones, building transparency and trust.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="exp-edu reveal">
+      <div class="exp-edu-item">
+        <h4>Bachelor of Science, Computer Science &amp; Information Technology</h4>
+        <p>Strayer University — In Progress, nearing completion</p>
+      </div>
+      <div class="exp-edu-item">
+        <h4>Associate of Arts, Information Technology</h4>
+        <p>Strayer University — Completed, cum laude</p>
+      </div>
+    </div>
+    <p class="exp-cert reveal"><strong>Certifications &amp; Licenses:</strong> Holds multiple professional certifications and licenses across transportation, technology, and design industries.</p>
   </div>
 </section>
 
@@ -1383,15 +1580,15 @@
   </div>
 </section>
 
-<!-- ─── WHY NC-DEVELOPER ─── -->
+<!-- ─── WHY WORK WITH ME ─── -->
 <section id="difference">
   <div class="container">
     <div style="text-align:center;max-width:620px;margin:0 auto">
-      <div class="section-label reveal" style="justify-content:center">Why NC-Developer</div>
+      <div class="section-label reveal" style="justify-content:center">Why Work With Me</div>
       <h2 class="section-title reveal">
-        We are <em class="gold-text">not like</em><br/>other developers
+        I am <em class="gold-text">not like</em><br/>other developers
       </h2>
-      <p class="section-sub reveal" style="margin:0 auto">Most agencies hide their process. Most solo devs disappear. We do the opposite.</p>
+      <p class="section-sub reveal" style="margin:0 auto">Most agencies hide their process. Most solo devs disappear. I do the opposite.</p>
     </div>
 
     <div class="diff-grid">
@@ -1402,11 +1599,11 @@
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
         </div>
         <h3>AI-Native by Default</h3>
-        <p>We don't secretly use AI and bill inflated hours. We declare it, share our prompt chains on request, and pass the savings to you.</p>
+        <p>I don't secretly use AI and bill inflated hours. I declare it, share my prompt chains on request, and pass the savings to you.</p>
         <ul class="diff-list">
-          <li>Lower cost — we work faster</li>
+          <li>Lower cost — I work faster</li>
           <li>Higher quality — fewer syntax errors</li>
-          <li>Full visibility — we share prompt chains</li>
+          <li>Full visibility — I share prompt chains</li>
         </ul>
       </div>
 
@@ -1416,7 +1613,7 @@
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </div>
         <h3>One Developer, Full Ecosystem</h3>
-        <p>Website, Chrome extension, mobile app — most freelancers only do one. We build all three and make them talk to each other.</p>
+        <p>Website, Chrome extension, mobile app — most freelancers only do one. I build all three and make them talk to each other.</p>
         <ul class="diff-list">
           <li>Single point of contact</li>
           <li>Consistent code &amp; branding</li>
@@ -1441,10 +1638,10 @@
     </div>
 
     <div class="diff-cta reveal">
-      <h3>We have only a <span class="gold-text">handful of clients so far.</span><br/>That's a feature.</h3>
-      <p>We're hungry. Your project gets our full attention. We adapt to your workflow. No legacy overhead. No bureaucracy.</p>
+      <h3>I have only a <span class="gold-text">handful of clients so far.</span><br/>That's a feature.</h3>
+      <p>I'm hungry. Your project gets my full attention. I adapt to your workflow. No legacy overhead. No bureaucracy.</p>
       <a href="#contact" class="btn-primary" style="display:inline-flex;margin:0 auto">
-        Let Us Prove It!
+        Let Me Prove It!
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -1458,17 +1655,6 @@
     <h2 class="section-title reveal">Find me <span class="gold-text">everywhere</span></h2>
 
     <div class="presence-grid">
-
-      <a href="https://www.nc-devs.com" target="_blank" rel="noopener" class="presence-card reveal">
-        <div class="presence-icon" style="background:rgba(200,164,74,0.1)">
-          <img src="nc-computer-logo.svg" style="width:34px;height:34px;object-fit:contain" alt="NC-Developer" />
-        </div>
-        <div class="presence-info">
-          <div class="presence-name">NC-Developer, LLC</div>
-          <div class="presence-url">www.nc-devs.com</div>
-        </div>
-        <div class="presence-arrow">→</div>
-      </a>
 
       <a href="https://apps.apple.com/us/app/healthy-eats/id6756924496" target="_blank" rel="noopener" class="presence-card reveal" style="transition-delay:0.05s">
         <div class="presence-icon" style="background:rgba(30,191,160,0.1)">
@@ -1558,7 +1744,17 @@
           </div>
           <div class="contact-method-text">
             <div class="contact-method-label">Email</div>
-            <div class="contact-method-value">support@nc-devs.com</div>
+            <div class="contact-method-value">c.neeka627@gmail.com</div>
+          </div>
+        </div>
+
+        <div class="contact-method reveal" style="transition-delay:0.08s">
+          <div class="contact-method-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div class="contact-method-text">
+            <div class="contact-method-label">Phone</div>
+            <div class="contact-method-value">410-934-2412</div>
           </div>
         </div>
 
@@ -1568,7 +1764,7 @@
           </div>
           <div class="contact-method-text">
             <div class="contact-method-label">Location</div>
-            <div class="contact-method-value">Rosedale, Maryland</div>
+            <div class="contact-method-value">Rosedale, MD 21237</div>
           </div>
         </div>
 
@@ -1582,9 +1778,7 @@
           </div>
         </div>
 
-        <div style="margin-top:36px" class="reveal">
-          <img src="NC-Developer, LLC-8.png" alt="NC-Developer LLC" class="img-multiply" style="width:200px;opacity:0.9;filter:drop-shadow(0 4px 12px rgba(200,164,74,0.2))" />
-        </div>
+        <p class="footer-tagline reveal" style="margin-top:36px;font-size:19px">Beautifully &amp; Reliably Built</p>
       </div>
 
       <div class="contact-form reveal" style="transition-delay:0.2s">
@@ -1647,9 +1841,8 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="nc-computer-logo.svg" alt="NC-Developer LLC" style="width:60px;margin-bottom:10px" />
-        <img src="NC-Developer, LLC-8.png" alt="NC-Developer LLC — AI Powered Business" class="img-multiply" style="display:block;width:220px;margin-bottom:14px;opacity:0.88;" />
-        <p>A boutique mobile and web development studio turning bold ideas into powerful digital realities. AI-Native. Ecosystem Ready. Radically Transparent.</p>
+        <span class="nav-logo-text" style="font-size:20px;display:block;margin-bottom:14px">Neeka Chisholm</span>
+        <p>Founder &amp; Lead Developer turning bold ideas into powerful digital realities. AI-Native. Ecosystem Ready. Radically Transparent.</p>
         <p style="margin-top:14px;font-size:13px;color:var(--gold-dk);font-weight:600">Built with Claude · Backed by Transparency</p>
       </div>
       <div class="footer-col">
@@ -1670,20 +1863,67 @@
           <li><a href="https://healthy-e.app" target="_blank" rel="noopener">Healthy-E Society</a></li>
           <li><a href="https://healthy-e.store" target="_blank" rel="noopener">Healthy-E Store</a></li>
           <li><a href="https://echoverse-eta.vercel.app" target="_blank" rel="noopener">EchoVerse</a></li>
-          <li><a href="https://www.nc-devs.com" target="_blank" rel="noopener">NC-Developer</a></li>
           <li><a href="https://uncms.llc" target="_blank" rel="noopener">UNCMS</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 <a href="https://www.nc-devs.com" target="_blank" rel="noopener">NC-Developer, LLC</a>. All rights reserved.</p>
+      <p>© 2026 Neeka Chisholm. All rights reserved.</p>
       <p class="footer-tagline">Beautifully & Reliably Built</p>
-      <p style="font-size:12px;color:var(--muted)">Rosedale, Maryland · <a href="mailto:support@nc-devs.com">support@nc-devs.com</a></p>
+      <p style="font-size:12px;color:var(--muted)">Rosedale, MD · <a href="mailto:c.neeka627@gmail.com">c.neeka627@gmail.com</a></p>
     </div>
   </div>
 </footer>
 
+<!-- ─── MY BOT WIDGET ─── -->
+<div id="bot-panel" role="dialog" aria-label="MY BOT — contact assistant">
+  <div class="bot-panel-header">
+    <img src="mybot-icon-256.png" alt="MY BOT" />
+    <div class="bot-panel-title">
+      <div class="bot-panel-name">MY BOT</div>
+      <div class="bot-panel-status">Neeka's assistant</div>
+    </div>
+    <button type="button" class="bot-panel-close" onclick="toggleBot(false)" aria-label="Close">✕</button>
+  </div>
+  <div class="bot-panel-body">
+    <div class="bot-message">Hey, I'm MY BOT 👋 Neeka's away from the keyboard right now — here's the fastest way to reach her:</div>
+    <div class="bot-actions">
+      <a href="sms:+14109342412" class="bot-action-btn bot-action-primary">
+        <span class="bot-action-icon">💬</span>
+        <span class="bot-action-text">Text Neeka Now<span class="bot-action-sub">For anything urgent — direct &amp; immediate</span></span>
+      </a>
+      <a href="mailto:c.neeka627@gmail.com?subject=Hello%20from%20your%20portfolio%20site" class="bot-action-btn bot-action-secondary">
+        <span class="bot-action-icon">✉️</span>
+        <span class="bot-action-text">Leave an Email<span class="bot-action-sub">Busy right now — she'll reply within 24 hrs</span></span>
+      </a>
+    </div>
+    <div class="bot-panel-footnote">Prefer to book time instead? Scroll to the Contact section below ↓</div>
+  </div>
+</div>
+
+<button type="button" id="bot-fab" onclick="toggleBot()" aria-label="Open MY BOT">
+  <span class="bot-fab-ping"></span>
+  <img src="mybot-icon-256.png" alt="MY BOT" />
+</button>
+
 <script>
+  // ─── MY BOT WIDGET ───
+  function toggleBot(force) {
+    const panel = document.getElementById('bot-panel');
+    const fab = document.getElementById('bot-fab');
+    const open = force !== undefined ? force : !panel.classList.contains('open');
+    panel.classList.toggle('open', open);
+    fab.classList.toggle('open', open);
+    fab.setAttribute('aria-label', open ? 'Close MY BOT' : 'Open MY BOT');
+  }
+  document.addEventListener('click', (e) => {
+    const panel = document.getElementById('bot-panel');
+    const fab = document.getElementById('bot-fab');
+    if (panel.classList.contains('open') && !panel.contains(e.target) && !fab.contains(e.target)) {
+      toggleBot(false);
+    }
+  });
+
   // ─── NAV SCROLL ───
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
@@ -1846,8 +2086,8 @@ vec2 p=uv;float d=length(p);
 col+=.00125/d*(cos(sin(i)*vec3(1,2,3))+1.);
 float b=noise(i+p+bg*1.731);
 col+=.002*b/length(max(p,vec2(b*p.x*.02,p.y)));
-col=mix(col,vec3(bg*.25,bg*.137,bg*.05),d);}
-O=vec4(col,1);}`;
+col=mix(col,vec3(bg*.34,bg*.195,bg*.085),d);}
+O=vec4(col+vec3(.035,.028,.018),1);}`;
 
     function mkShader(type, src) {
       const s = gl.createShader(type);
@@ -1905,12 +2145,6 @@ O=vec4(col,1);}`;
   // ─── GSAP ScrollTrigger enhanced animations (if loaded) ───
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
-
-    // Parallax hero logo
-    gsap.to('.hero-logo-float', {
-      y: 80, ease: 'none',
-      scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 1 }
-    });
 
     // Parallax hero background
     gsap.to('.hero-bg', {
