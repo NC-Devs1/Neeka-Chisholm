@@ -183,18 +183,6 @@
       max-width: 860px; width: 100%; padding: 0 24px;
       text-align: center;
     }
-    .hero-specs {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-      color: rgba(250,248,245,0.6);
-      margin-bottom: 18px;
-      opacity: 0; transform: translateY(14px);
-    }
-    .hero-specs-swatch { display: inline-flex; align-items: center; gap: 6px; }
-    .hero-specs-swatch i {
-      width: 10px; height: 10px; border-radius: 3px; display: inline-block;
-      border: 1px solid rgba(250,248,245,0.35);
-    }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 10px;
       background: rgba(30,191,160,0.15);
@@ -243,7 +231,7 @@
     }
     .hero-name-word { display: inline-block; transform: translateY(110%); will-change: transform; }
     .hero-name .gold-text {
-      background-image: linear-gradient(105deg, var(--gold-lt) 0%, #FFF6DE 35%, #FFFFFF 55%, #FFF6DE 75%, var(--gold-lt) 100%);
+      background-image: linear-gradient(135deg, var(--gold-dk), var(--gold), var(--gold-lt));
     }
     .hero-title {
       font-family: 'Playfair Display', serif;
@@ -1186,12 +1174,6 @@
   </svg>
 
   <div class="hero-content">
-    <div class="hero-specs">
-      <span>Grid &middot; 8pt</span>
-      <span>Radius 12</span>
-      <span class="hero-specs-swatch"><i style="background:#C8A44A"></i>#C8A44A</span>
-    </div>
-
     <div class="hero-eyebrow">
       <div class="hero-eyebrow-dot"></div>
       Founder &amp; Lead Developer
@@ -2059,7 +2041,6 @@
   // ─── HERO ANIMATIONS ───
   (function() {
     const words = document.querySelectorAll('.hero-name-word');
-    const specs = document.querySelector('.hero-specs');
     const eyebrow = document.querySelector('.hero-eyebrow');
     const title = document.querySelector('.hero-title');
     const tagline = document.querySelector('.hero-tagline');
@@ -2070,12 +2051,6 @@
       w.style.transition = `transform 0.7s cubic-bezier(0.16,1,0.3,1) ${0.3 + i * 0.15}s`;
       setTimeout(() => { w.style.transform = 'translateY(0)'; }, 50);
     });
-
-    // Specs line
-    setTimeout(() => {
-      specs.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      specs.style.opacity = '1'; specs.style.transform = 'translateY(0)';
-    }, 50);
 
     // Eyebrow
     setTimeout(() => {
