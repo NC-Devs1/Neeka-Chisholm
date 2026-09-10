@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crosstel — Live Demo</title>
+<style>
+  :root{
+    --paper:#FAF7F1;
+    --ink:#2E2A22;
+    --muted:#8D8471;
+    --gold:#C9A227;
+    --gold-hi:#F2D87E;
+    --gold-lo:#9C7A15;
+    --teal:#2FBDB3;
+    --pink:#F19EC7;
+    --line:#3A352C;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    background:
+      radial-gradient(1200px 600px at 50% -10%, #ffffff 0%, transparent 60%),
+      var(--paper);
+    color:var(--ink);
+    font-family:"Avenir Next","Avenir","Segoe UI",system-ui,sans-serif;
+    display:flex;flex-direction:column;align-items:center;
+    min-height:100%;
+    overflow-x:hidden;
+  }
+  header{
+    text-align:center;
+    padding:34px 20px 6px;
+  }
+  header h1{
+    font-size:clamp(30px,6vw,46px);
+    font-weight:700;
+    letter-spacing:.42em;
+    margin-right:-.42em; /* balance tracking */
+  }
+  header p{
+    margin-top:8px;
+    color:var(--muted);
+    font-size:14px;
+    letter-spacing:.14em;
+  }
+  .stage{
+    width:min(920px,96vw);
+    position:relative;
+    user-select:none;
+  }
+  svg{width:100%;height:auto;display:block}
+
+  /* floating idle motion */
+  #shoe{
+    animation:float 5.5s ease-in-out infinite;
+    transform-origin:50% 60%;
+  }
+  @keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-10px)}
+  }
+  @media (prefers-reduced-motion: reduce){
+    #shoe{animation:none}
+    *{transition-duration:.01ms !important}
+  }
+
+  /* part groups: transitions for explode + cinch */
+  #g-sole,#g-tongue,#g-collar,#g-fin,#g-throat,#g-toecap,#g-brandtxt{
+    transition:transform .8s cubic-bezier(.34,1.3,.4,1);
+  }
+  .exploded #g-sole{transform:translate(0,95px)}
+  .exploded #g-tongue{transform:translate(-14px,-84px)}
+  .exploded #g-collar{transform:translate(10px,-52px)}
+  .exploded #g-fin{transform:translate(66px,-8px)}
+  .exploded #g-throat{transform:translate(-34px,-28px)}
+  .exploded #g-toecap{transform:translate(-52px,6px)}
+  .exploded #g-brandtxt{opacity:0}
+
+  .lace-under,.lace-over{transition:stroke-width .6s ease}
+  .cinched .lace-under{stroke-width:22}
+  .cinched .lace-over{stroke-width:13}
+  #dial-rotor{transition:transform .8s cubic-bezier(.4,0,.2,1);transform-origin:1282px 764px}
+  .cinched #dial-rotor{transform:rotate(200deg)}
+  #cinch-ring{opacity:0;transform-origin:1282px 764px}
+  .cinched #cinch-ring{animation:ring .9s ease-out 1}
+  @keyframes ring{
+    0%{opacity:.9;transform:scale(.4)}
+    100%{opacity:0;transform:scale(2.1)}
+  }
+
+  /* accent-recolorable pieces */
+  .acc-stripe{transition:stroke .5s ease}
+  .acc-wrap{transition:fill .5s ease}
+
+  /* hotspots */
+  .hotspot{cursor:pointer}
+  .hotspot circle.core{fill:var(--ink)}
+  .hotspot circle.halo{
+    fill:none;stroke:var(--ink);stroke-width:2;opacity:.5;
+    animation:halo 2.4s ease-out infinite;
+    transform-box:fill-box;transform-origin:center;
+  }
+  @keyframes halo{
+    0%{transform:scale(.6);opacity:.6}
+    70%{transform:scale(1.8);opacity:0}
+    100%{opacity:0}
+  }
+  .hotspot.active circle.core{fill:var(--gold-lo)}
+
+  /* panel */
+  .panel{
+    width:min(920px,96vw);
+    display:flex;
+    gap:18px;
+    padding:6px 4px 40px;
+    flex-wrap:wrap;
+    align-items:stretch;
+  }
+  .card{
+    flex:1 1 300px;
+    background:#fff;
+    border:2px solid var(--ink);
+    border-radius:14px;
+    padding:18px 20px;
+    min-height:118px;
+  }
+  .card h2{font-size:17px;letter-spacing:.04em;margin-bottom:6px}
+  .card p{font-size:14.5px;line-height:1.5;color:#55503f}
+  .controls{
+    flex:0 1 300px;
+    display:flex;flex-direction:column;gap:10px;justify-content:center;
+  }
+  button{
+    font:inherit;font-size:14.5px;font-weight:600;
+    padding:11px 16px;
+    border-radius:999px;
+    border:2px solid var(--ink);
+    background:#fff;color:var(--ink);
+    cursor:pointer;
+    transition:background .2s ease,color .2s ease,transform .1s ease;
+  }
+  button:hover{background:var(--ink);color:#fff}
+  button:active{transform:scale(.97)}
+  button:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+  button.on{background:var(--gold);border-color:var(--gold-lo);color:#fff}
+  .swatches{display:flex;gap:10px;align-items:center}
+  .swatches span{font-size:13px;color:var(--muted);letter-spacing:.06em}
+  .sw{
+    width:34px;height:34px;border-radius:50%;
+    border:2px solid var(--ink);cursor:pointer;padding:0;
+  }
+  .sw:hover{transform:scale(1.1);background:inherit}
+  .sw.gold{background:linear-gradient(160deg,var(--gold-hi),var(--gold-lo))}
+  .sw.teal{background:linear-gradient(160deg,#7fe3db,#1e8f88)}
+  .sw.pink{background:linear-gradient(160deg,#f9c2da,#e26fa9)}
+  .sw.sel{outline:3px solid var(--ink);outline-offset:2px}
+  .back-link{
+    position:fixed;top:18px;left:18px;z-index:10;
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:13px;font-weight:600;letter-spacing:.03em;
+    color:var(--ink);text-decoration:none;
+    padding:8px 14px;border-radius:999px;
+    background:#fff;border:2px solid var(--ink);
+    transition:background .2s ease,color .2s ease;
+  }
+  .back-link:hover{background:var(--ink);color:#fff}
+</style>
+</head>
+<body>
+
+<a href="index.html#projects" class="back-link">← Back to Portfolio</a>
+
+<header>
+  <h1>CROSSTEL</h1>
+  <p>Hybrid athletic / industrial high-top — live concept demo</p>
+</header>
+
+<div class="stage">
+<svg id="shoe-svg" viewBox="80 250 1420 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Interactive Crosstel shoe">
+  <defs>
+    <linearGradient id="upperG" x1="0.15" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#ece8de"/>
+    </linearGradient>
+    <linearGradient id="goldG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2d87e"/><stop offset="0.5" stop-color="#d0a72c"/><stop offset="1" stop-color="#a07d14"/>
+    </linearGradient>
+    <linearGradient id="pinkG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8bcd6"/><stop offset="1" stop-color="#f19ec7"/>
+    </linearGradient>
+    <linearGradient id="soleG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e9e4d6"/>
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="760" cy="985" rx="570" ry="32" fill="#2b2823" opacity="0.10"/>
+
+  <g id="shoe">
+
+    <!-- ============ UPPER ============ -->
+    <g id="g-upper">
+      <path d="M 248 860
+               C 242 800, 284 752, 364 734
+               C 430 720, 500 716, 552 692
+               C 606 664, 646 604, 672 528
+               C 694 470, 726 428, 784 410
+               C 848 386, 942 380, 1032 390
+               C 1108 398, 1162 419, 1185 452
+               C 1223 540, 1249 710, 1257 860
+               C 980 874, 500 872, 248 860 Z"
+            fill="url(#upperG)" stroke="#3a352c" stroke-width="8" stroke-linejoin="round"/>
+      <path d="M 1120 500 C 1165 600, 1195 720, 1206 856 C 1170 860, 1136 862, 1104 862
+               C 1120 736, 1122 610, 1120 500 Z" fill="#e0dbce" opacity="0.35"/>
+      <path id="wrap" class="acc-wrap" d="M 588 864
+               C 780 772, 1010 772, 1200 860
+               C 1000 872, 790 872, 588 864 Z"
+            fill="#eccf7a" stroke="#3a352c" stroke-width="5"/>
+    </g>
+
+    <g id="g-brandtxt">
+      <text x="960" y="700" font-family="inherit" font-size="30" font-weight="bold"
+            letter-spacing="6" fill="#b08d1e">CROSSTEL</text>
+    </g>
+
+    <!-- ============ TONGUE ============ -->
+    <g id="g-tongue">
+      <path d="M 744 438 C 764 388, 818 366, 880 374 C 928 382, 952 406, 943 436
+               C 876 420, 806 422, 744 438 Z"
+            fill="url(#pinkG)" stroke="#3a352c" stroke-width="6"/>
+      <g fill="#ffffff" opacity="0.6">
+        <circle cx="806" cy="406" r="5"/><circle cx="844" cy="398" r="5"/><circle cx="882" cy="402" r="5"/>
+      </g>
+    </g>
+
+    <!-- ============ TOE CAP ============ -->
+    <g id="g-toecap">
+      <path d="M 248 860
+               C 242 800, 284 752, 364 734
+               C 396 728, 426 728, 452 734
+               C 466 776, 470 818, 464 860
+               C 392 862, 314 862, 248 860 Z"
+            fill="#f5f2ea" stroke="#3a352c" stroke-width="6"/>
+      <path d="M 262 796 C 310 762, 378 746, 444 750" fill="none"
+            stroke="#8f887a" stroke-width="4" stroke-dasharray="12 9"/>
+      <ellipse cx="322" cy="772" rx="46" ry="16" fill="#ffffff" opacity="0.9" transform="rotate(-13 322 772)"/>
+    </g>
+
+    <!-- ============ LACE THROAT ============ -->
+    <g id="g-throat">
+      <path d="M 600 726 C 644 700, 676 640, 696 566
+               C 714 494, 740 444, 790 424
+               C 818 414, 850 410, 880 412
+               C 866 456, 850 510, 834 574
+               C 812 668, 772 738, 708 782
+               C 668 792, 630 762, 600 726 Z"
+            fill="#fbf9f4" stroke="#3a352c" stroke-width="6"/>
+      <g stroke-linecap="round" fill="none">
+        <g>
+          <line class="lace-under" stroke="#3a352c" stroke-width="30" x1="628" y1="712" x2="746" y2="676"/>
+          <line class="lace-under" stroke="#3a352c" stroke-width="30" x1="650" y1="650" x2="768" y2="614"/>
+          <line class="lace-under" stroke="#3a352c" stroke-width="30" x1="672" y1="588" x2="788" y2="552"/>
+          <line class="lace-under" stroke="#3a352c" stroke-width="30" x1="694" y1="526" x2="808" y2="492"/>
+          <line class="lace-under" stroke="#3a352c" stroke-width="30" x1="716" y1="466" x2="828" y2="436"/>
+        </g>
+        <g>
+          <line class="lace-over" stroke="#ffffff" stroke-width="20" x1="628" y1="712" x2="746" y2="676"/>
+          <line class="lace-over" stroke="#ffffff" stroke-width="20" x1="650" y1="650" x2="768" y2="614"/>
+          <line class="lace-over" stroke="#ffffff" stroke-width="20" x1="672" y1="588" x2="788" y2="552"/>
+          <line class="lace-over" stroke="#ffffff" stroke-width="20" x1="694" y1="526" x2="808" y2="492"/>
+          <line class="lace-over" stroke="#ffffff" stroke-width="20" x1="716" y1="466" x2="828" y2="436"/>
+        </g>
+      </g>
+      <g fill="url(#goldG)" stroke="#3a352c" stroke-width="4">
+        <circle cx="618" cy="716" r="13"/><circle cx="640" cy="654" r="13"/>
+        <circle cx="662" cy="592" r="13"/><circle cx="684" cy="530" r="13"/>
+        <circle cx="706" cy="470" r="13"/><circle cx="730" cy="430" r="13"/>
+        <circle cx="756" cy="672" r="13"/><circle cx="778" cy="610" r="13"/>
+        <circle cx="798" cy="548" r="13"/><circle cx="818" cy="488" r="13"/>
+        <circle cx="838" cy="432" r="13"/><circle cx="862" cy="414" r="13"/>
+      </g>
+    </g>
+
+    <!-- ============ COLLAR ============ -->
+    <g id="g-collar">
+      <path d="M 784 410
+               C 848 386, 942 380, 1032 390
+               C 1108 398, 1162 419, 1185 452
+               C 1173 474, 1137 486, 1085 482
+               C 995 474, 899 468, 828 450
+               C 804 444, 790 432, 784 410 Z"
+            fill="url(#goldG)" stroke="#3a352c" stroke-width="7"/>
+      <path d="M 828 450 C 899 468, 995 474, 1085 482"
+            fill="none" stroke="#f6e5ae" stroke-width="6" stroke-linecap="round"/>
+    </g>
+
+    <!-- ============ HEEL FIN + DIAL ============ -->
+    <g id="g-fin">
+      <path d="M 1180 448
+               C 1212 426, 1252 424, 1282 444
+               C 1306 462, 1319 496, 1327 546
+               C 1340 662, 1332 780, 1315 874
+               L 1252 866
+               C 1267 752, 1261 634, 1233 540
+               C 1222 506, 1202 476, 1180 448 Z"
+            fill="url(#goldG)" stroke="#3a352c" stroke-width="7"/>
+      <path d="M 1198 462 C 1228 446, 1260 446, 1284 464" fill="none"
+            stroke="#f6e5ae" stroke-width="5" stroke-linecap="round"/>
+      <circle id="cinch-ring" cx="1282" cy="764" r="40" fill="none" stroke="#2fbdb3" stroke-width="5"/>
+      <circle cx="1282" cy="764" r="33" fill="#8f6f12" stroke="#3a352c" stroke-width="6"/>
+      <g id="dial-rotor">
+        <circle cx="1282" cy="764" r="18" fill="#f2d87e" stroke="#3a352c" stroke-width="4"/>
+        <line x1="1282" y1="754" x2="1282" y2="774" stroke="#3a352c" stroke-width="7" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- ============ SOLE ============ -->
+    <g id="g-sole">
+      <path d="M 232 834
+               C 202 850, 192 890, 212 918
+               C 230 940, 276 946, 336 948
+               L 1234 956
+               C 1306 956, 1344 932, 1342 898
+               C 1340 872, 1306 862, 1258 862
+               C 960 878, 520 872, 316 850
+               C 284 846, 254 840, 232 834 Z"
+            fill="url(#soleG)" stroke="#3a352c" stroke-width="8"/>
+      <path id="stripe" class="acc-stripe" d="M 244 842 C 480 866, 920 876, 1254 868" fill="none"
+            stroke="#2fbdb3" stroke-width="6" stroke-linecap="round"/>
+      <g opacity="0.9" id="flecks">
+        <circle cx="320" cy="902" r="6" fill="#d0a72c"/><circle cx="392" cy="924" r="5" fill="#2fbdb3"/>
+        <circle cx="464" cy="900" r="6" fill="#2fbdb3"/><circle cx="536" cy="926" r="6" fill="#d0a72c"/>
+        <circle cx="608" cy="904" r="5" fill="#d0a72c"/><circle cx="680" cy="928" r="6" fill="#2fbdb3"/>
+        <circle cx="752" cy="906" r="5" fill="#d0a72c"/><circle cx="824" cy="930" r="6" fill="#2fbdb3"/>
+        <circle cx="896" cy="908" r="6" fill="#d0a72c"/><circle cx="968" cy="932" r="5" fill="#2fbdb3"/>
+        <circle cx="1040" cy="910" r="6" fill="#d0a72c"/><circle cx="1112" cy="934" r="5" fill="#2fbdb3"/>
+        <circle cx="1184" cy="912" r="6" fill="#d0a72c"/><circle cx="1256" cy="934" r="5" fill="#2fbdb3"/>
+      </g>
+      <g stroke="#8f887a" stroke-width="5" stroke-linecap="round">
+        <line x1="300" y1="944" x2="318" y2="920"/><line x1="388" y1="948" x2="400" y2="922"/>
+        <line x1="476" y1="950" x2="480" y2="924"/><line x1="564" y1="952" x2="560" y2="926"/>
+        <line x1="652" y1="952" x2="640" y2="928"/><line x1="740" y1="954" x2="722" y2="930"/>
+        <line x1="828" y1="954" x2="806" y2="932"/><line x1="916" y1="954" x2="892" y2="934"/>
+        <line x1="1004" y1="956" x2="978" y2="936"/><line x1="1092" y1="956" x2="1064" y2="936"/>
+        <line x1="1180" y1="956" x2="1152" y2="938"/><line x1="1268" y1="956" x2="1240" y2="938"/>
+      </g>
+    </g>
+
+    <!-- ============ HOTSPOTS ============ -->
+    <g class="hotspot" data-f="toe" transform="translate(352,790)" tabindex="0" role="button" aria-label="Composite toe cap">
+      <circle class="halo" r="14"/><circle class="core" r="9"/>
+    </g>
+    <g class="hotspot" data-f="knit" transform="translate(1000,560)" tabindex="0" role="button" aria-label="Water-shedding knit">
+      <circle class="halo" r="14"/><circle class="core" r="9"/>
+    </g>
+    <g class="hotspot" data-f="tongue" transform="translate(846,388)" tabindex="0" role="button" aria-label="Hidden tongue print">
+      <circle class="halo" r="14"/><circle class="core" r="9"/>
+    </g>
+    <g class="hotspot" data-f="collar" transform="translate(960,432)" tabindex="0" role="button" aria-label="Asymmetric collar">
+      <circle class="halo" r="14"/><circle class="core" r="9"/>
+    </g>
+    <g class="hotspot" data-f="dial" transform="translate(1330,700)" tabindex="0" role="button" aria-label="Heel fin and dial">
+      <circle class="halo" r="14"/><circle class="core" r="9"/>
+    </g>
+    <g class="hotspot" data-f="sole" transform="translate(700,900)" tabindex="0" role="button" aria-label="Translucent fan-tread sole">
+      <circle class="halo" r="14"/><circle class="core" r="9"/>
+    </g>
+  </g>
+</svg>
+</div>
+
+<div class="panel">
+  <div class="card" id="feature-card" aria-live="polite">
+    <h2 id="fc-title">Let your toes tell your mind a comfort story — for once</h2>
+    <p id="fc-body">Poke the glowing dots, give the dial a twist, or pull the whole shoe apart. Go ahead — it doesn't mind.</p>
+  </div>
+  <div class="controls">
+    <button id="btn-cinch">Twist dial to cinch fit</button>
+    <button id="btn-explode">Pull apart the build</button>
+    <div class="swatches">
+      <span>Accent</span>
+      <button class="sw teal sel" data-acc="teal" aria-label="Teal accent"></button>
+      <button class="sw gold" data-acc="gold" aria-label="Gold accent"></button>
+      <button class="sw pink" data-acc="pink" aria-label="Pink accent"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const svg = document.getElementById('shoe-svg');
+  const fcT = document.getElementById('fc-title');
+  const fcB = document.getElementById('fc-body');
+
+  const FEATURES = {
+    toe:    ["Composite toe cap", "A carbon-blend cap moulded thin to the foot's shape. Steel-grade impact protection at roughly half the weight, with no cold transfer in winter."],
+    knit:   ["Water-shedding knit", "Engineered mesh with a water-repellent coating and a bonded membrane behind it. Breathable across the wide forefoot, dry in a wet loading bay."],
+    tongue: ["Hidden tongue print", "A pink iridescent print on the inner face of the tongue — visible only when the laces are loosened. Yours to personalise."],
+    collar: ["Asymmetric collar", "Padded gold collar cut higher on the outside for ankle support, scooped lower on the inside so your ankles never rub."],
+    dial:   ["Heel fin + dial", "The sculpted gold fin doubles as a pull tab and houses the micro-adjust dial. One twist cinches the whole shoe — glove-friendly, nothing to re-tie."],
+    sole:   ["Translucent fan-tread sole", "Milky vulcanised rubber with suspended gold and teal flecks. The fan tread radiates from the ball of the foot for grip on gym floors and wet concrete."]
+  };
+
+  // hotspots
+  let activeSpot = null;
+  document.querySelectorAll('.hotspot').forEach(h => {
+    const show = () => {
+      const [t, b] = FEATURES[h.dataset.f];
+      fcT.textContent = t;
+      fcB.textContent = b;
+      if (activeSpot) activeSpot.classList.remove('active');
+      h.classList.add('active');
+      activeSpot = h;
+    };
+    h.addEventListener('click', show);
+    h.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(); } });
+  });
+
+  // cinch
+  const btnCinch = document.getElementById('btn-cinch');
+  btnCinch.addEventListener('click', () => {
+    const on = svg.classList.toggle('cinched');
+    btnCinch.classList.toggle('on', on);
+    btnCinch.textContent = on ? 'Fit locked — twist to release' : 'Twist dial to cinch fit';
+    fcT.textContent = on ? 'Fit locked' : 'Fit released';
+    fcB.textContent = on
+      ? 'The wire pulls the collar and midfoot snug in one even motion. The front laces are purely decorative.'
+      : 'One twist backwards and the tension releases. Adjust mid-lift or mid-shift with one gloved hand.';
+  });
+
+  // explode
+  const btnExp = document.getElementById('btn-explode');
+  btnExp.addEventListener('click', () => {
+    const on = svg.classList.toggle('exploded');
+    btnExp.classList.toggle('on', on);
+    btnExp.textContent = on ? 'Put it back together' : 'Pull apart the build';
+    fcT.textContent = on ? 'The build, layer by layer' : 'Back in one piece';
+    fcB.textContent = on
+      ? 'Composite cap, laced throat, pink-printed tongue, asymmetric collar, dial-bearing heel fin — all seated on the translucent fan-tread sole.'
+      : 'Every layer seats back onto the sole unit. Tap the dots to keep exploring.';
+  });
+
+  // accent swap
+  const ACC = {
+    teal: { stripe:'#2fbdb3', wrap:'#eccf7a' },
+    gold: { stripe:'#c9a227', wrap:'#f2d87e' },
+    pink: { stripe:'#f19ec7', wrap:'#f6d9e8' }
+  };
+  const stripe = document.getElementById('stripe');
+  const wrap = document.getElementById('wrap');
+  const flecks = document.getElementById('flecks').querySelectorAll('circle');
+  document.querySelectorAll('.sw').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.sw').forEach(x => x.classList.remove('sel'));
+      b.classList.add('sel');
+      const a = ACC[b.dataset.acc];
+      stripe.setAttribute('stroke', a.stripe);
+      wrap.setAttribute('fill', a.wrap);
+      flecks.forEach((c, i) => {
+        if (i % 2 === 1) c.setAttribute('fill', a.stripe);
+      });
+      fcT.textContent = 'Accent: ' + b.dataset.acc;
+      fcB.textContent = 'The pinstripe, sole flecks and midfoot wrap take the new accent. White and gold stay the backbone of the colourway.';
+    });
+  });
+</script>
+</body>
+</html>
