@@ -160,7 +160,19 @@
     .hp-beam { stroke: url(#hpBeamGrad); stroke-width: 2; stroke-linecap: round; opacity: 0.85; animation: hpBeam 7s ease-in-out infinite; }
     .hp-node { fill: var(--gold-lt); filter: url(#hpGlow); animation: hpNode 7s ease-in-out infinite; }
     .hp-halo { fill: none; stroke: var(--gold-lt); opacity: 0.35; animation: hpHalo 7s ease-in-out infinite; }
-    .hp-arc { fill: none; stroke: url(#hpArcGrad); stroke-width: 1.2; stroke-dasharray: 3 9; stroke-linecap: round; animation: hpFlow 30s linear infinite; }
+    .hp-arc { fill: none; stroke: url(#hpArcGrad); stroke-width: 3.5; stroke-dasharray: 3 9; stroke-linecap: round; animation: hpFlow 30s linear infinite; }
+    .hp-star { fill: #fff; filter: url(#hpGlow); transform-box: fill-box; transform-origin: center; animation: hpSparkle 5s ease-in-out infinite; }
+    .hp-star-halo { fill: none; stroke: #fff; transform-box: fill-box; transform-origin: center; animation: hpSparkleHalo 5s ease-in-out infinite; }
+    @keyframes hpSparkle {
+      0%, 80%, 100% { transform: scale(0.55) rotate(0deg); opacity: 0.5; }
+      90%            { transform: scale(1.5) rotate(20deg); opacity: 1; }
+      95%            { transform: scale(0.95) rotate(10deg); opacity: 0.85; }
+    }
+    @keyframes hpSparkleHalo {
+      0%, 80%, 100% { transform: scale(0.4); opacity: 0; }
+      90%            { transform: scale(2.2); opacity: 0.6; }
+      100%           { transform: scale(3); opacity: 0; }
+    }
     @keyframes hpBeam { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.9; } }
     @keyframes hpNode { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
     @keyframes hpHalo { 0% { r: 5; opacity: 0.4; } 70%, 100% { r: 16; opacity: 0; } }
@@ -1106,7 +1118,13 @@
     </defs>
 
     <!-- one continuous pulse line linking every beam — kept in the clear sky band above the headline -->
-    <path class="hp-arc" d="M460 150 L520 60 L570 170 L650 140 L700 160 L750 120 L800 150 L900 100 L960 130 L1030 110 L1075 30 L1150 145 L1200 115 L1330 170 L1450 155"/>
+    <path class="hp-arc" d="M460 150 L520 60 L570 170 L650 140 L700 160 L750 120 L800 150 L900 100 L960 130 L1030 110 L1075 30 L1150 145 L1200 115 L1330 170 L1450 70"/>
+
+    <!-- glowing sparkle at the end of the pulse line -->
+    <g transform="translate(1450,70)">
+      <circle class="hp-star-halo" r="14"/>
+      <path class="hp-star" d="M0 -15 L3.2 -3.2 L15 0 L3.2 3.2 L0 15 L-3.2 3.2 L-15 0 L-3.2 -3.2 Z"/>
+    </g>
 
     <g>
       <line class="hp-beam" style="animation-delay:-0.6s" x1="460" y1="480" x2="460" y2="150"/>
@@ -1162,8 +1180,8 @@
       <circle class="hp-node" style="animation-delay:-3s" cx="1330" cy="170" r="3.4"/>
       <circle class="hp-halo" style="animation-delay:-3s" cx="1330" cy="170" r="5"/>
 
-      <line class="hp-beam" style="animation-delay:-6.1s" x1="1450" y1="460" x2="1450" y2="155"/>
-      <circle class="hp-node" style="animation-delay:-6.1s" cx="1450" cy="155" r="3.6"/>
+      <line class="hp-beam" style="animation-delay:-6.1s" x1="1450" y1="460" x2="1450" y2="70"/>
+      <circle class="hp-node" style="animation-delay:-6.1s" cx="1450" cy="70" r="3.6"/>
     </g>
   </svg>
 
