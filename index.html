@@ -490,19 +490,19 @@
     #services { background: var(--page-bg); }
     .services-grid {
       display: grid; grid-template-columns: 1fr;
-      max-width: 920px; margin: 60px auto 0;
-      gap: 20px;
+      max-width: 700px; margin: 60px auto 0;
+      gap: 14px;
     }
     .service-card {
-      padding: 32px 36px;
+      padding: 20px 24px;
       background: var(--card);
       border: 1px solid rgba(200,164,74,0.18);
-      border-radius: 20px;
+      border-radius: 16px;
       position: relative; overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
       cursor: default;
       box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-      display: flex; align-items: center; gap: 28px;
+      display: flex; align-items: center; gap: 18px;
     }
     .service-card::before {
       content: '';
@@ -514,26 +514,26 @@
     .service-card:hover::before { opacity: 1; }
     .service-icon {
       flex: 0 0 auto;
-      width: 56px; height: 56px; border-radius: 14px;
+      width: 42px; height: 42px; border-radius: 11px;
       background: linear-gradient(135deg, rgba(200,164,74,0.12), rgba(30,191,160,0.12));
       border: 1px solid rgba(200,164,74,0.2);
       display: flex; align-items: center; justify-content: center;
     }
-    .service-icon svg { width: 26px; height: 26px; }
+    .service-icon svg { width: 20px; height: 20px; }
     .service-card-body { flex: 1 1 auto; min-width: 0; }
     .service-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 20px; font-weight: 700;
-      color: var(--cream); margin-bottom: 8px;
+      font-size: 16px; font-weight: 700;
+      color: var(--cream); margin-bottom: 5px;
     }
-    .service-card p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 12px; }
+    .service-card p { font-size: 12.5px; color: var(--muted); line-height: 1.6; margin-bottom: 8px; }
     .service-card .service-icon svg { filter: none; }
     .service-tag {
-      display: inline-block; margin-top: 20px;
-      padding: 5px 14px; border-radius: 50px;
+      display: inline-block; margin-top: 12px;
+      padding: 3px 11px; border-radius: 50px;
       background: rgba(30,191,160,0.1);
       border: 1px solid rgba(30,191,160,0.3);
-      font-size: 11px; color: var(--teal-dk); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700;
+      font-size: 10px; color: var(--teal-dk); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700;
     }
 
     /* ─── PROJECTS ─── */
@@ -918,7 +918,7 @@
       .btn-primary, .btn-secondary { width: 100%; justify-content: center; max-width: 320px; }
       .hero-cursor { display: none; }
       .hero-name { white-space: normal; font-size: clamp(32px, 10vw, 44px); }
-      .service-card { flex-direction: column; align-items: flex-start; text-align: left; padding: 32px 24px; }
+      .service-card { flex-direction: column; align-items: flex-start; text-align: left; padding: 22px 20px; }
       .project-card.featured .project-body { padding: 28px 24px; }
       .project-card.featured h3 { font-size: 24px; }
       .diff-card { padding: 32px 24px; gap: 20px; }
@@ -1684,7 +1684,7 @@
 
       <!-- Crosstel -->
       <div class="project-card reveal" style="transition-delay:0.7s">
-        <div class="project-thumb" style="background-image:url('crosstel-thumb.jpg');background-size:cover;background-position:center">
+        <div class="project-thumb" style="background-color:#EAE8E2;background-image:url('crosstel-thumb.jpg');background-size:contain;background-repeat:no-repeat;background-position:center">
           <span class="project-status status-live">● Interactive Demo</span>
         </div>
         <div class="project-body">
@@ -1704,7 +1704,7 @@
 
       <!-- Balloon Wars -->
       <div class="project-card featured featured-end reveal" style="transition-delay:0.8s">
-        <div class="project-thumb" style="background-image:url('balloon-wars-thumb.jpg');background-size:cover;background-position:center">
+        <div class="project-thumb" style="background-color:#EAE8E2;background-image:url('balloon-wars-thumb.jpg');background-size:contain;background-repeat:no-repeat;background-position:center">
           <span class="project-status status-coming">● Private Demo</span>
         </div>
         <div class="project-body">
