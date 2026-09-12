@@ -409,12 +409,16 @@
 
     /* ─── ABOUT ─── */
     #about { background: var(--surface); border-top: 1px solid rgba(200,164,74,0.1); }
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: center;
+    .about-header {
+      text-align: right;
+      margin-bottom: 48px;
     }
+    .about-body::after { content: ''; display: table; clear: both; }
     .about-img-wrap {
       position: relative;
+      float: left;
+      width: 380px; max-width: 42%;
+      margin: 4px 48px 24px 0;
     }
     .about-img-frame {
       width: 100%;
@@ -457,11 +461,11 @@
     }
     .about-badge-num { font-family: 'Playfair Display', serif; font-size: 28px; line-height: 1; }
     .about-badge-text { font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; }
-    .about-text p {
+    .about-body p {
       font-size: 16px; color: var(--muted);
       line-height: 1.8; margin-bottom: 18px;
     }
-    .about-text p strong { color: var(--gold-dk); font-weight: 700; }
+    .about-body p strong { color: var(--gold-dk); font-weight: 700; }
     .skills-list {
       display: flex; flex-wrap: wrap; gap: 10px;
       margin-top: 28px;
@@ -915,7 +919,8 @@
       .hero-content { left: 24px; right: 24px; top: 13%; max-width: none; transform: none; }
       .hero-card-wire { display: none; }
       .hero-cursor { left: 80%; top: 40%; }
-      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-header { text-align: left; margin-bottom: 32px; }
+      .about-img-wrap { float: none; width: 100%; max-width: 340px; margin: 0 auto 32px; display: block; }
       .exp-item { grid-template-columns: 1fr; gap: 6px; }
       .exp-edu { grid-template-columns: 1fr; gap: 20px; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
