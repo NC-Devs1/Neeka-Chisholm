@@ -539,8 +539,8 @@
     /* ─── PROJECTS ─── */
     #projects { background: var(--surface); border-top: 1px solid rgba(200,164,74,0.1); }
     .projects-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 28px; margin-top: 60px;
+      display: grid; grid-template-columns: 1fr;
+      gap: 24px; margin-top: 60px;
     }
     .project-card {
       background: var(--card);
@@ -549,19 +549,23 @@
       overflow: hidden;
       position: relative;
       transition: transform 0.35s, box-shadow 0.35s, border-color 0.35s;
-      display: flex; flex-direction: column;
+      display: flex; flex-direction: row;
       box-shadow: 0 2px 20px rgba(0,0,0,0.07);
     }
     .project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 70px rgba(200,164,74,0.18), 0 4px 30px rgba(0,0,0,0.1); border-color: rgba(200,164,74,0.45); }
-    .project-card.featured { grid-column: span 2; flex-direction: row; }
+    .project-card.featured {
+      border: 2px solid rgba(200,164,74,0.4);
+      box-shadow: 0 10px 50px rgba(200,164,74,0.2), 0 4px 30px rgba(0,0,0,0.1);
+    }
+    .project-card.featured:hover { box-shadow: 0 22px 80px rgba(200,164,74,0.26), 0 4px 30px rgba(0,0,0,0.12); }
+    .project-card.featured-end { flex-direction: row-reverse; }
     .project-thumb {
-      width: 100%; aspect-ratio: 16/8;
+      width: 280px; flex-shrink: 0;
       background: linear-gradient(135deg, #EAE8E2, #F4F2EC);
       position: relative; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
     }
-    .project-card.featured .project-thumb { width: 48%; aspect-ratio: auto; min-height: 300px; }
+    .project-card.featured .project-thumb { width: 42%; min-height: 340px; }
     .project-thumb-emoji { font-size: 64px; filter: drop-shadow(0 4px 20px rgba(0,0,0,0.4)); }
     .project-thumb-glow {
       position: absolute; inset: 0;
@@ -580,14 +584,23 @@
     }
     .status-live { background: rgba(30,191,160,0.14); border: 1px solid rgba(30,191,160,0.45); color: var(--teal-dk); font-weight: 700; }
     .status-coming { background: rgba(200,164,74,0.13); border: 1px solid rgba(200,164,74,0.4); color: var(--gold-dk); font-weight: 700; }
-    .project-body { padding: 28px 32px; flex: 1; display: flex; flex-direction: column; }
+    .project-body { padding: 28px 32px; flex: 1; display: flex; flex-direction: column; min-width: 0; }
+    .project-card.featured .project-body { padding: 40px 44px; }
     .project-emoji-sm { font-size: 22px; margin-bottom: 10px; }
     .project-card h3 {
       font-family: 'Playfair Display', serif;
       font-size: 22px; font-weight: 700; color: var(--cream);
       margin-bottom: 10px;
     }
+    .project-card.featured h3 { font-size: 28px; }
     .project-card p { font-size: 14px; color: var(--muted); line-height: 1.7; flex: 1; }
+    .project-card.featured p { font-size: 15px; }
+    .project-flagship {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+      color: var(--gold-dk); text-transform: uppercase;
+      margin-bottom: 10px;
+    }
     .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
     .project-tag {
       padding: 4px 12px; border-radius: 50px;
@@ -619,44 +632,48 @@
       pointer-events: none;
     }
     .diff-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 28px; margin-top: 64px;
+      display: grid; grid-template-columns: 1fr;
+      max-width: 920px; margin: 64px auto 0;
+      gap: 20px;
     }
     .diff-card {
-      padding: 44px 36px;
+      padding: 36px 40px;
       background: var(--card);
       border: 1px solid rgba(200,164,74,0.18);
       border-radius: 20px;
-      text-align: center;
+      text-align: left;
       position: relative; overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
       box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      display: flex; align-items: flex-start; gap: 32px;
     }
     .diff-card:hover { transform: translateY(-6px); box-shadow: 0 14px 60px rgba(200,164,74,0.2), 0 4px 20px rgba(0,0,0,0.08); border-color: rgba(200,164,74,0.4); }
     .diff-number {
       font-family: 'Playfair Display', serif;
-      font-size: 80px; font-weight: 900; line-height: 1;
+      font-size: 72px; font-weight: 900; line-height: 1;
       background: linear-gradient(135deg, rgba(200,164,74,0.14), rgba(30,191,160,0.14));
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent;
-      position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
-      width: 100%; text-align: center; pointer-events: none;
+      position: absolute; top: 8px; right: 28px;
+      pointer-events: none; z-index: 0;
     }
     .diff-icon {
+      flex: 0 0 auto;
       width: 72px; height: 72px; border-radius: 50%;
       background: linear-gradient(135deg, rgba(200,164,74,0.12), rgba(30,191,160,0.12));
       border: 1px solid rgba(200,164,74,0.22);
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 24px; position: relative; z-index: 1;
+      position: relative; z-index: 1;
     }
     .diff-icon svg { width: 32px; height: 32px; }
+    .diff-card-body { flex: 1 1 auto; min-width: 0; position: relative; z-index: 1; }
     .diff-card h3 {
       font-family: 'Playfair Display', serif;
       font-size: 20px; font-weight: 700;
-      color: var(--cream); margin-bottom: 14px; position: relative; z-index: 1;
+      color: var(--cream); margin-bottom: 10px;
     }
-    .diff-card p { font-size: 14px; color: var(--muted); line-height: 1.75; position: relative; z-index: 1; }
-    .diff-list { list-style: none; margin-top: 20px; text-align: left; position: relative; z-index: 1; }
+    .diff-card p { font-size: 14px; color: var(--muted); line-height: 1.75; }
+    .diff-list { list-style: none; margin-top: 16px; text-align: left; }
     .diff-list li {
       font-size: 13px; color: var(--muted);
       padding: 7px 0 7px 20px;
@@ -885,10 +902,10 @@
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .stat-item:nth-child(2) { border-right: none; }
       .services-grid { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .project-card.featured { grid-column: span 1; flex-direction: column; }
-      .project-card.featured .project-thumb { width: 100%; aspect-ratio: 16/8; }
-      .diff-grid { grid-template-columns: 1fr; }
+      .project-card, .project-card.featured, .project-card.featured-end { flex-direction: column; }
+      .project-thumb, .project-card.featured .project-thumb { width: 100%; aspect-ratio: 16/8; min-height: 0; }
+      .diff-card { flex-direction: column; }
+      .diff-number { top: 8px; right: 20px; font-size: 56px; }
       .presence-grid { grid-template-columns: 1fr; }
       .contact-wrap { grid-template-columns: 1fr; gap: 48px; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -902,6 +919,9 @@
       .hero-cursor { display: none; }
       .hero-name { white-space: normal; font-size: clamp(32px, 10vw, 44px); }
       .service-card { flex-direction: column; align-items: flex-start; text-align: left; padding: 32px 24px; }
+      .project-card.featured .project-body { padding: 28px 24px; }
+      .project-card.featured h3 { font-size: 24px; }
+      .diff-card { padding: 32px 24px; gap: 20px; }
     }
 
     /* ─── PROJECT LOGO IMAGES ─── */
@@ -1478,6 +1498,7 @@
           <span class="project-status status-live" style="z-index:3;position:absolute;top:14px;right:14px">● Live on App Store</span>
         </div>
         <div class="project-body">
+          <span class="project-flagship">★ Flagship Project</span>
           <video autoplay muted loop playsinline style="width:42px;height:42px;border-radius:50%;object-fit:cover;display:block;margin-bottom:12px;border:2px solid rgba(200,164,74,0.4);box-shadow:0 2px 12px rgba(200,164,74,0.25)">
             <source src="he-app-demo-h264.mp4" type="video/mp4" />
           </video>
@@ -1682,11 +1703,12 @@
       </div>
 
       <!-- Balloon Wars -->
-      <div class="project-card reveal" style="transition-delay:0.8s">
+      <div class="project-card featured featured-end reveal" style="transition-delay:0.8s">
         <div class="project-thumb" style="background-image:url('balloon-wars-thumb.jpg');background-size:cover;background-position:center">
           <span class="project-status status-coming">● Private Demo</span>
         </div>
         <div class="project-body">
+          <span class="project-flagship">★ Latest Build</span>
           <h3>Balloon Wars (Slot Game) Demo</h3>
           <p>An original casino-style slot game concept — 25 paylines, 3 jackpots, free spins, and a pick bonus — designed, built, and balanced independently, currently in private pre-release demonstration.</p>
           <div class="project-tags">
@@ -1723,13 +1745,15 @@
         <div class="diff-icon">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </div>
-        <h3>End-to-End Ownership</h3>
-        <p>I designed, built, and shipped a native iOS app through the full Apple App Store review process — research, architecture, UI, the Swift build, release, and post-launch fixes — as the only person on it.</p>
-        <ul class="diff-list">
-          <li>Research through release, no handoffs</li>
-          <li>Five client engagements, 100% completion</li>
-          <li>Live web products with documented design systems</li>
-        </ul>
+        <div class="diff-card-body">
+          <h3>End-to-End Ownership</h3>
+          <p>I designed, built, and shipped a native iOS app through the full Apple App Store review process — research, architecture, UI, the Swift build, release, and post-launch fixes — as the only person on it.</p>
+          <ul class="diff-list">
+            <li>Research through release, no handoffs</li>
+            <li>Five client engagements, 100% completion</li>
+            <li>Live web products with documented design systems</li>
+          </ul>
+        </div>
       </div>
 
       <div class="diff-card reveal" style="transition-delay:0.15s">
@@ -1737,13 +1761,15 @@
         <div class="diff-icon">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
         </div>
-        <h3>System &amp; Experience, Solved Together</h3>
-        <p>When a layout breaks across devices or a feature confuses users, I find the real cause — whether it's living in the code, the design system, or the requirements — and fix it there.</p>
-        <ul class="diff-list">
-          <li>AI/LLM tooling — Claude, OpenAI, Gemini</li>
-          <li>GitHub-based version control</li>
-          <li>Multi-week builds, shipped in days</li>
-        </ul>
+        <div class="diff-card-body">
+          <h3>System &amp; Experience, Solved Together</h3>
+          <p>When a layout breaks across devices or a feature confuses users, I find the real cause — whether it's living in the code, the design system, or the requirements — and fix it there.</p>
+          <ul class="diff-list">
+            <li>AI/LLM tooling — Claude, OpenAI, Gemini</li>
+            <li>GitHub-based version control</li>
+            <li>Multi-week builds, shipped in days</li>
+          </ul>
+        </div>
       </div>
 
       <div class="diff-card reveal" style="transition-delay:0.3s">
@@ -1751,13 +1777,15 @@
         <div class="diff-icon">
           <img src="Transparency logo.png" alt="Reliability" style="width:36px;height:36px;object-fit:contain;" />
         </div>
-        <h3>Calm Under Real Pressure</h3>
-        <p>Years in safety-critical, public-facing roles taught me the reliability and clear communication I now bring to every deadline and every client conversation.</p>
-        <ul class="diff-list">
-          <li>Reliable, deadline-driven delivery</li>
-          <li>Clear, honest communication</li>
-          <li>Fast learner — adapts to what the project needs</li>
-        </ul>
+        <div class="diff-card-body">
+          <h3>Calm Under Real Pressure</h3>
+          <p>Years in safety-critical, public-facing roles taught me the reliability and clear communication I now bring to every deadline and every client conversation.</p>
+          <ul class="diff-list">
+            <li>Reliable, deadline-driven delivery</li>
+            <li>Clear, honest communication</li>
+            <li>Fast learner — adapts to what the project needs</li>
+          </ul>
+        </div>
       </div>
 
     </div>
