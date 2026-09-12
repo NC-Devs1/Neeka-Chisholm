@@ -490,7 +490,7 @@
     #services { background: var(--page-bg); }
     .services-grid {
       display: grid; grid-template-columns: 1fr;
-      max-width: 700px; margin: 60px auto 0;
+      max-width: 1160px; margin: 60px auto 0;
       gap: 14px;
     }
     .service-card {
@@ -566,7 +566,7 @@
       display: flex; align-items: center; justify-content: center;
     }
     .project-card.featured .project-thumb { width: 42%; min-height: 340px; }
-    .project-card.featured-end .project-thumb { min-height: 0; aspect-ratio: 2 / 1; align-self: center; }
+    .project-card.featured-end .project-thumb { min-height: 0; aspect-ratio: 1 / 1; align-self: center; }
     .project-thumb-emoji { font-size: 64px; filter: drop-shadow(0 4px 20px rgba(0,0,0,0.4)); }
     .project-thumb-glow {
       position: absolute; inset: 0;
@@ -905,6 +905,7 @@
       .services-grid { grid-template-columns: 1fr; }
       .project-card, .project-card.featured, .project-card.featured-end { flex-direction: column; }
       .project-thumb, .project-card.featured .project-thumb { width: 100%; aspect-ratio: 16/8; min-height: 0; }
+      .project-card.featured-end .project-thumb { aspect-ratio: 1 / 1; }
       .diff-card { flex-direction: column; }
       .diff-number { top: 8px; right: 20px; font-size: 56px; }
       .presence-grid { grid-template-columns: 1fr; }
@@ -1705,7 +1706,7 @@
 
       <!-- Balloon Wars -->
       <div class="project-card featured featured-end reveal" style="transition-delay:0.8s">
-        <div class="project-thumb" style="background-color:#EAE8E2;background-image:url('balloon-wars-thumb.jpg');background-size:contain;background-repeat:no-repeat;background-position:center">
+        <div class="project-thumb" style="background-color:#EAE8E2;background-image:url('balloon-wars-logo.jpg');background-size:contain;background-repeat:no-repeat;background-position:center">
           <span class="project-status status-coming">● Private Demo</span>
         </div>
         <div class="project-body">
