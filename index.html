@@ -306,18 +306,12 @@
     @keyframes heroCardFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
 
     /* Drifting design cursor */
-    .hero-cursor { position: absolute; z-index: 6; left: 84%; top: 46%; pointer-events: none; animation: heroCursorDrift 14s ease-in-out infinite; }
+    .hero-cursor { position: absolute; z-index: 6; left: 84%; top: 46%; pointer-events: none; animation: heroCardFloat 9s ease-in-out infinite; animation-delay: -6s; }
     .hero-cursor svg { display: block; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); }
     .hero-cursor-tag {
       margin: 2px 0 0 14px; background: var(--teal); color: #fff;
       font-size: 12.5px; font-weight: 700;
       padding: 4px 10px; border-radius: 4px 12px 12px 12px; white-space: nowrap;
-    }
-    @keyframes heroCursorDrift {
-      0%, 100% { transform: translate(0,0); }
-      30%      { transform: translate(60px,-30px); }
-      60%      { transform: translate(20px,24px); }
-      80%      { transform: translate(-36px,-8px); }
     }
 
     .hero-scroll {
@@ -495,11 +489,12 @@
     /* ─── SERVICES ─── */
     #services { background: var(--page-bg); }
     .services-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 24px; margin-top: 60px;
+      display: grid; grid-template-columns: 1fr;
+      max-width: 920px; margin: 60px auto 0;
+      gap: 20px;
     }
     .service-card {
-      padding: 40px 32px;
+      padding: 32px 36px;
       background: var(--card);
       border: 1px solid rgba(200,164,74,0.18);
       border-radius: 20px;
@@ -507,6 +502,7 @@
       transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
       cursor: default;
       box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      display: flex; align-items: center; gap: 28px;
     }
     .service-card::before {
       content: '';
@@ -517,19 +513,20 @@
     .service-card:hover { transform: translateY(-6px); box-shadow: 0 16px 60px rgba(200,164,74,0.22), 0 4px 20px rgba(0,0,0,0.08); border-color: rgba(200,164,74,0.45); }
     .service-card:hover::before { opacity: 1; }
     .service-icon {
+      flex: 0 0 auto;
       width: 56px; height: 56px; border-radius: 14px;
       background: linear-gradient(135deg, rgba(200,164,74,0.12), rgba(30,191,160,0.12));
       border: 1px solid rgba(200,164,74,0.2);
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 24px;
     }
     .service-icon svg { width: 26px; height: 26px; }
+    .service-card-body { flex: 1 1 auto; min-width: 0; }
     .service-card h3 {
       font-family: 'Playfair Display', serif;
       font-size: 20px; font-weight: 700;
-      color: var(--cream); margin-bottom: 12px;
+      color: var(--cream); margin-bottom: 8px;
     }
-    .service-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .service-card p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 12px; }
     .service-card .service-icon svg { filter: none; }
     .service-tag {
       display: inline-block; margin-top: 20px;
@@ -904,6 +901,7 @@
       .btn-primary, .btn-secondary { width: 100%; justify-content: center; max-width: 320px; }
       .hero-cursor { display: none; }
       .hero-name { white-space: normal; font-size: clamp(32px, 10vw, 44px); }
+      .service-card { flex-direction: column; align-items: flex-start; text-align: left; padding: 32px 24px; }
     }
 
     /* ─── PROJECT LOGO IMAGES ─── */
@@ -1392,54 +1390,66 @@
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </div>
-        <h3>Web Development</h3>
-        <p>Business sites, portfolios, e-commerce, CMS-driven platforms — fully responsive, performance-optimized, and built to rank.</p>
-        <span class="service-tag">Full-Stack</span>
+        <div class="service-card-body">
+          <h3>Web Development</h3>
+          <p>Business sites, portfolios, e-commerce, CMS-driven platforms — fully responsive, performance-optimized, and built to rank.</p>
+          <span class="service-tag">Full-Stack</span>
+        </div>
       </div>
 
       <div class="service-card reveal" style="transition-delay:0.1s">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-linecap="round"/></svg>
         </div>
-        <h3>Native iOS Apps</h3>
-        <p>App Store-ready iOS applications built with Swift — from concept and UI/UX wireframes to TestFlight and launch.</p>
-        <span class="service-tag">Swift / Xcode</span>
+        <div class="service-card-body">
+          <h3>Native iOS Apps</h3>
+          <p>App Store-ready iOS applications built with Swift — from concept and UI/UX wireframes to TestFlight and launch.</p>
+          <span class="service-tag">Swift / Xcode</span>
+        </div>
       </div>
 
       <div class="service-card reveal" style="transition-delay:0.2s">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--lime)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
         </div>
-        <h3>PWA &amp; Extensions</h3>
-        <p>Progressive web apps and Chrome extensions — productivity tools, UI enhancers, integrations — that share data with your website.</p>
-        <span class="service-tag">Ecosystem Ready</span>
+        <div class="service-card-body">
+          <h3>PWA &amp; Extensions</h3>
+          <p>Progressive web apps and Chrome extensions — productivity tools, UI enhancers, integrations — that share data with your website.</p>
+          <span class="service-tag">Ecosystem Ready</span>
+        </div>
       </div>
 
       <div class="service-card reveal" style="transition-delay:0.3s">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         </div>
-        <h3>Brand Identity</h3>
-        <p>Logos, brand guidelines, design systems, and visual strategy that make your product instantly recognizable and trustworthy.</p>
-        <span class="service-tag">Design System</span>
+        <div class="service-card-body">
+          <h3>Brand Identity</h3>
+          <p>Logos, brand guidelines, design systems, and visual strategy that make your product instantly recognizable and trustworthy.</p>
+          <span class="service-tag">Design System</span>
+        </div>
       </div>
 
       <div class="service-card reveal" style="transition-delay:0.4s">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
         </div>
-        <h3>AI Integration</h3>
-        <p>Embed AI-powered features — smart assistants, recommendation engines, nutrition bots — directly into your product.</p>
-        <span class="service-tag">AI-Native</span>
+        <div class="service-card-body">
+          <h3>AI Integration</h3>
+          <p>Embed AI-powered features — smart assistants, recommendation engines, nutrition bots — directly into your product.</p>
+          <span class="service-tag">AI-Native</span>
+        </div>
       </div>
 
       <div class="service-card reveal" style="transition-delay:0.5s">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg>
         </div>
-        <h3>E-Commerce</h3>
-        <p>Wellness storefronts, product marketplaces, and subscription platforms — built for conversion, built to scale.</p>
-        <span class="service-tag">Commerce</span>
+        <div class="service-card-body">
+          <h3>E-Commerce</h3>
+          <p>Wellness storefronts, product marketplaces, and subscription platforms — built for conversion, built to scale.</p>
+          <span class="service-tag">Commerce</span>
+        </div>
       </div>
 
     </div>
