@@ -634,50 +634,50 @@
     }
     .diff-grid {
       display: grid; grid-template-columns: 1fr;
-      max-width: 920px; margin: 64px auto 0;
-      gap: 20px;
+      max-width: 1160px; margin: 60px auto 0;
+      gap: 14px;
     }
     .diff-card {
-      padding: 36px 40px;
+      padding: 20px 24px;
       background: var(--card);
       border: 1px solid rgba(200,164,74,0.18);
-      border-radius: 20px;
+      border-radius: 16px;
       text-align: left;
       position: relative; overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
       box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-      display: flex; align-items: flex-start; gap: 32px;
+      display: flex; align-items: center; gap: 18px;
     }
     .diff-card:hover { transform: translateY(-6px); box-shadow: 0 14px 60px rgba(200,164,74,0.2), 0 4px 20px rgba(0,0,0,0.08); border-color: rgba(200,164,74,0.4); }
     .diff-number {
       font-family: 'Playfair Display', serif;
-      font-size: 72px; font-weight: 900; line-height: 1;
+      font-size: 48px; font-weight: 900; line-height: 1;
       background: linear-gradient(135deg, rgba(200,164,74,0.14), rgba(30,191,160,0.14));
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent;
-      position: absolute; top: 8px; right: 28px;
+      position: absolute; top: 8px; right: 20px;
       pointer-events: none; z-index: 0;
     }
     .diff-icon {
       flex: 0 0 auto;
-      width: 72px; height: 72px; border-radius: 50%;
+      width: 42px; height: 42px; border-radius: 50%;
       background: linear-gradient(135deg, rgba(200,164,74,0.12), rgba(30,191,160,0.12));
       border: 1px solid rgba(200,164,74,0.22);
       display: flex; align-items: center; justify-content: center;
       position: relative; z-index: 1;
     }
-    .diff-icon svg { width: 32px; height: 32px; }
+    .diff-icon svg { width: 20px; height: 20px; }
     .diff-card-body { flex: 1 1 auto; min-width: 0; position: relative; z-index: 1; }
     .diff-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 20px; font-weight: 700;
-      color: var(--cream); margin-bottom: 10px;
+      font-size: 16px; font-weight: 700;
+      color: var(--cream); margin-bottom: 5px;
     }
-    .diff-card p { font-size: 14px; color: var(--muted); line-height: 1.75; }
-    .diff-list { list-style: none; margin-top: 16px; text-align: left; }
+    .diff-card p { font-size: 12.5px; color: var(--muted); line-height: 1.6; margin-bottom: 8px; }
+    .diff-list { list-style: none; margin-top: 8px; text-align: left; }
     .diff-list li {
-      font-size: 13px; color: var(--muted);
-      padding: 7px 0 7px 20px;
+      font-size: 12px; color: var(--muted);
+      padding: 5px 0 5px 18px;
       border-bottom: 1px solid rgba(200,164,74,0.12);
       position: relative;
     }
@@ -906,8 +906,8 @@
       .project-card, .project-card.featured, .project-card.featured-end { flex-direction: column; }
       .project-thumb, .project-card.featured .project-thumb { width: 100%; aspect-ratio: 16/8; min-height: 0; }
       .project-card.featured-end .project-thumb { aspect-ratio: 1 / 1; }
-      .diff-card { flex-direction: column; }
-      .diff-number { top: 8px; right: 20px; font-size: 56px; }
+      .diff-card { flex-direction: column; align-items: flex-start; text-align: left; }
+      .diff-number { top: 8px; right: 20px; font-size: 40px; }
       .presence-grid { grid-template-columns: 1fr; }
       .contact-wrap { grid-template-columns: 1fr; gap: 48px; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -923,7 +923,7 @@
       .service-card { flex-direction: column; align-items: flex-start; text-align: left; padding: 22px 20px; }
       .project-card.featured .project-body { padding: 28px 24px; }
       .project-card.featured h3 { font-size: 24px; }
-      .diff-card { padding: 32px 24px; gap: 20px; }
+      .diff-card { padding: 22px 20px; gap: 12px; }
     }
 
     /* ─── PROJECT LOGO IMAGES ─── */
@@ -1822,35 +1822,35 @@
         <div class="presence-arrow">→</div>
       </a>
 
-      <a href="https://healthy-e.app" target="_blank" rel="noopener" class="presence-card reveal" style="transition-delay:0.1s">
-        <div class="presence-icon" style="background:rgba(181,212,41,0.12)">
-          <img src="HealthyEatsLogo.png" style="width:34px;height:34px;object-fit:contain" alt="Healthy-E Society" />
-        </div>
-        <div class="presence-info">
-          <div class="presence-name">Healthy-E Society</div>
-          <div class="presence-url">healthy-e.app</div>
-        </div>
-        <div class="presence-arrow">→</div>
-      </a>
-
-      <a href="https://healthy-e.store" target="_blank" rel="noopener" class="presence-card reveal" style="transition-delay:0.15s">
+      <a href="https://nc-devs.com" target="_blank" rel="noopener" class="presence-card reveal" style="transition-delay:0.1s">
         <div class="presence-icon" style="background:rgba(30,191,160,0.1)">
-          <img src="HealthyEatsLogo.png" style="width:34px;height:34px;object-fit:contain" alt="Healthy-E Store" />
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
         <div class="presence-info">
-          <div class="presence-name">Healthy-E Store</div>
-          <div class="presence-url">healthy-e.store</div>
+          <div class="presence-name">NC Devs</div>
+          <div class="presence-url">nc-devs.com</div>
         </div>
         <div class="presence-arrow">→</div>
       </a>
 
-      <a href="https://echoverse-eta.vercel.app" target="_blank" rel="noopener" class="presence-card reveal" style="transition-delay:0.2s">
+      <a href="mailto:c.neeka627@gmail.com" class="presence-card reveal" style="transition-delay:0.15s">
         <div class="presence-icon" style="background:rgba(200,164,74,0.12)">
-          <svg width="24" height="24" viewBox="0 0 80 80" fill="none"><defs><linearGradient id="micG3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E8C96A"/><stop offset="100%" stop-color="#9A7A2E"/></linearGradient></defs><rect x="28" y="10" width="24" height="36" rx="12" fill="url(#micG3)"/><path d="M16 42c0 13.255 10.745 24 24 24s24-10.745 24-24" stroke="url(#micG3)" stroke-width="4" stroke-linecap="round" fill="none"/><line x1="40" y1="66" x2="40" y2="76" stroke="url(#micG3)" stroke-width="4" stroke-linecap="round"/><line x1="28" y1="76" x2="52" y2="76" stroke="url(#micG3)" stroke-width="4" stroke-linecap="round"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dk)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </div>
         <div class="presence-info">
-          <div class="presence-name">EchoVerse</div>
-          <div class="presence-url">echoverse-eta.vercel.app</div>
+          <div class="presence-name">Email</div>
+          <div class="presence-url">c.neeka627@gmail.com</div>
+        </div>
+        <div class="presence-arrow">→</div>
+      </a>
+
+      <a href="https://twitch.tv/NCDevNeek" target="_blank" rel="noopener" class="presence-card reveal" style="transition-delay:0.2s">
+        <div class="presence-icon" style="background:rgba(145,70,255,0.12)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#9146FF"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/></svg>
+        </div>
+        <div class="presence-info">
+          <div class="presence-name">Twitch</div>
+          <div class="presence-url">NCDevNeek</div>
         </div>
         <div class="presence-arrow">→</div>
       </a>
