@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neeka Chisholm | Why Me & Experience</title>
+  <meta name="description" content="Why work with Neeka Chisholm — end-to-end ownership, technical skill paired with UX care, and her professional experience from product development to operational leadership." />
+  <meta property="og:title" content="Neeka Chisholm | Why Me & Experience" />
+  <meta property="og:description" content="Two skill sets, one person who cares — Neeka's approach to work, plus her career background." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="/nc-computer-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Dancing+Script:wght@600;700&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<!-- ─── MOBILE NAV MENU ─── -->
+<nav id="mobile-menu" class="mobile-menu">
+  <button class="mobile-close" onclick="closeMobile()">✕</button>
+
+  <div class="mobile-menu-item">
+    <div class="mobile-menu-row">
+      <a href="/" onclick="closeMobile()" class="">About</a>
+      <button class="mobile-menu-caret" onclick="toggleMobileSub(this)" aria-label="Expand About links">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu-sub">
+      <a href="/" onclick="closeMobile()">Home</a>
+      <a href="/#about" onclick="closeMobile()">About</a>
+    </div>
+  </div>
+
+  <div class="mobile-menu-item">
+    <div class="mobile-menu-row">
+      <a href="/projects" onclick="closeMobile()" class="">Projects</a>
+      <button class="mobile-menu-caret" onclick="toggleMobileSub(this)" aria-label="Expand Projects links">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu-sub">
+      <a href="/projects#services" onclick="closeMobile()">Services</a>
+      <a href="/projects#projects" onclick="closeMobile()">Projects</a>
+    </div>
+  </div>
+
+  <div class="mobile-menu-item">
+    <div class="mobile-menu-row">
+      <a href="/experience" onclick="closeMobile()" class="active">Experience</a>
+      <button class="mobile-menu-caret" onclick="toggleMobileSub(this)" aria-label="Expand Experience links">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu-sub">
+      <a href="/experience#difference" onclick="closeMobile()">Why Me</a>
+      <a href="/experience#experience" onclick="closeMobile()">Experience</a>
+    </div>
+  </div>
+
+  <div class="mobile-menu-item">
+    <div class="mobile-menu-row">
+      <a href="/links" onclick="closeMobile()" class="">Links</a>
+      <button class="mobile-menu-caret" onclick="toggleMobileSub(this)" aria-label="Expand Links links">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu-sub">
+      <a href="/links#presence" onclick="closeMobile()">Digital Presence</a>
+      <a href="/links#contact" onclick="closeMobile()">Contact</a>
+    </div>
+  </div>
+
+  <a href="/links#contact" onclick="closeMobile()" style="margin-top:8px">Let's Talk →</a>
+</nav>
+
+<!-- ─── NAV ─── -->
+<nav id="navbar">
+  <a href="/" class="nav-logo">
+    <span class="nav-logo-text">Neeka Chisholm</span>
+  </a>
+  <ul class="nav-links">
+    <li class="nav-drop">
+      <a href="/" class="">About <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="nav-drop-panel">
+        <a href="/">Home</a>
+        <a href="/#about">About</a>
+      </div>
+    </li>
+    <li class="nav-drop">
+      <a href="/projects" class="">Projects <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="nav-drop-panel">
+        <a href="/projects#services">Services</a>
+        <a href="/projects#projects">Projects</a>
+      </div>
+    </li>
+    <li class="nav-drop">
+      <a href="/experience" class="active">Experience <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="nav-drop-panel">
+        <a href="/experience#difference">Why Me</a>
+        <a href="/experience#experience">Experience</a>
+      </div>
+    </li>
+    <li class="nav-drop">
+      <a href="/links" class="">Links <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="nav-drop-panel">
+        <a href="/links#presence">Digital Presence</a>
+        <a href="/links#contact">Contact</a>
+      </div>
+    </li>
+    <li><a href="/links#contact" class="btn-nav">Let's Talk</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="openMobile()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<section id="difference">
+  <div class="container">
+    <div style="text-align:center;max-width:620px;margin:0 auto">
+      <div class="section-label reveal" style="justify-content:center">Why Work With Me</div>
+      <h2 class="section-title reveal">
+        Two skill sets.<br/>One person <em class="gold-text">who cares.</em>
+      </h2>
+      <p class="section-sub reveal" style="margin:0 auto">I bring the technical skills to build and troubleshoot real software, plus the UX/UI care to make sure it actually works for the people using it — so nothing gets lost between the two.</p>
+    </div>
+
+    <div class="diff-grid">
+
+      <div class="diff-card reveal">
+        <div class="diff-number">01</div>
+        <div class="diff-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="diff-card-body">
+          <h3>End-to-End Ownership</h3>
+          <p>I designed, built, and shipped a native iOS app through the full Apple App Store review process — research, architecture, UI, the Swift build, release, and post-launch fixes — as the only person on it.</p>
+          <ul class="diff-list">
+            <li>Research through release, no handoffs</li>
+            <li>Five client engagements, 100% completion</li>
+            <li>Live web products with documented design systems</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="diff-card reveal" style="transition-delay:0.15s">
+        <div class="diff-number">02</div>
+        <div class="diff-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        </div>
+        <div class="diff-card-body">
+          <h3>System &amp; Experience, Solved Together</h3>
+          <p>When a layout breaks across devices or a feature confuses users, I find the real cause — whether it's living in the code, the design system, or the requirements — and fix it there.</p>
+          <ul class="diff-list">
+            <li>AI/LLM tooling — Claude, OpenAI, Gemini</li>
+            <li>GitHub-based version control</li>
+            <li>Multi-week builds, shipped in days</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="diff-card reveal" style="transition-delay:0.3s">
+        <div class="diff-number">03</div>
+        <div class="diff-icon">
+          <img src="Transparency logo.png" alt="Reliability" style="width:36px;height:36px;object-fit:contain;" />
+        </div>
+        <div class="diff-card-body">
+          <h3>Calm Under Real Pressure</h3>
+          <p>Years in safety-critical, public-facing roles taught me the reliability and clear communication I now bring to every deadline and every client conversation.</p>
+          <ul class="diff-list">
+            <li>Reliable, deadline-driven delivery</li>
+            <li>Clear, honest communication</li>
+            <li>Fast learner — adapts to what the project needs</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="diff-cta reveal">
+      <h3>I'd love to hear <span class="gold-text">what you're building.</span></h3>
+      <p>My portfolio and full case studies are live at neeka-chisholm.dev, and so is my shipped work — you're welcome to try it today. Thank you for taking the time to look.</p>
+      <a href="/links#contact" class="btn-primary" style="display:inline-flex;margin:0 auto">
+        Let's Talk
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+<section id="experience">
+  <div class="container">
+    <div style="max-width:560px">
+      <div class="section-label reveal">Experience</div>
+      <h2 class="section-title reveal">
+        A career built on<br/>
+        <span class="gold-text">ownership</span>
+      </h2>
+      <p class="section-sub reveal">From fleet logistics to founding a studio of one — every role sharpened the same instinct: take the wheel, deliver, build trust.</p>
+    </div>
+
+    <div class="exp-timeline">
+
+      <div class="exp-item reveal">
+        <div class="exp-dates">Jan 2022 – Present</div>
+        <div>
+          <div class="exp-role">App &amp; Website Developer / Product Designer</div>
+          <div class="exp-org">Founder · Boutique Digital Product Studio</div>
+          <ul>
+            <li>Own the full product lifecycle for five completed client projects — discovery, requirements, wireframes, brand identity, high-fidelity prototypes, front-end implementation, and developer handoff — delivering every engagement on scope.</li>
+            <li>Shipped a native iOS app through the full Apple App Store review and release process, resolving build, review, and functionality issues independently.</li>
+            <li>Diagnose and fix UI, layout, and functionality defects across devices and browsers, improving stability and user experience for live products.</li>
+            <li>Compress multi-week builds into days by pairing AI/LLM tooling (Claude, OpenAI, Gemini) with GitHub-based version control and reusable Figma design systems.</li>
+            <li>Run engagements start to finish as sole designer-developer and client point of contact, with live project access, transparent documentation, and flat, documented pricing.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item reveal" style="transition-delay:0.1s">
+        <div class="exp-dates">Jan 2021 – Present</div>
+        <div>
+          <div class="exp-role">Freelance IT Contractor</div>
+          <div class="exp-org">Shopper's Retreat, LLC</div>
+          <ul>
+            <li>Founded and lead an accessibility-focused digital experience practice, handling web design, technical implementation, troubleshooting, and client strategy.</li>
+            <li>Apply accessibility standards (WCAG) to make client sites usable for broader audiences — improving both compliance and reach.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item reveal" style="transition-delay:0.2s">
+        <div class="exp-dates">Mar 2024 – Present</div>
+        <div>
+          <div class="exp-role">School Bus Driver</div>
+          <div class="exp-org">Baltimore County Public Schools</div>
+          <ul>
+            <li>Operate safety-critical daily routes serving dozens of students while building a technology practice — a sustained record of reliability, compliance, and calm real-time problem-solving under pressure.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item reveal" style="transition-delay:0.3s">
+        <div class="exp-dates">2012 – 2021</div>
+        <div>
+          <div class="exp-role">Bus Operator &amp; Project/Fleet Manager</div>
+          <div class="exp-org">Maryland Transit Administration &amp; Dad's Delivery</div>
+          <ul>
+            <li>Operated technical systems and led logistics, scheduling, and project coordination in high-volume, public-facing roles — the operational foundation for today's disciplined project delivery and client communication.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="exp-edu reveal">
+      <div class="exp-edu-item">
+        <h4>B.S., Computer Science &amp; Information Technology</h4>
+        <p>Strayer University — Coursework in progress</p>
+      </div>
+      <div class="exp-edu-item">
+        <h4>Associate of Arts, Information Technology (Programming)</h4>
+        <p>Strayer University — Completed, cum laude</p>
+      </div>
+    </div>
+    <p class="exp-cert reveal"><strong>Certifications:</strong> Figma Mastery: From Wireframes to Prototypes Specialization (Coursera, 2023) · Google Project Management Certificate (Coursera) · IBM Data Certificate (Coursera).</p>
+  </div>
+</section>
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo-text" style="font-size:20px;display:block;margin-bottom:14px">Neeka Chisholm</span>
+        <p>Founder &amp; Lead Developer turning bold ideas into powerful digital realities. AI-Native. Ecosystem Ready. Radically Transparent.</p>
+        <p style="margin-top:14px;font-size:13px;color:var(--gold-dk);font-weight:600">Built with Claude · Backed by Transparency</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/projects#services">Web Development</a></li>
+          <li><a href="/projects#services">iOS Apps</a></li>
+          <li><a href="/projects#services">PWA &amp; Extensions</a></li>
+          <li><a href="/projects#services">Brand Identity</a></li>
+          <li><a href="/projects#services">AI Integration</a></li>
+          <li><a href="/projects#services">E-Commerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Projects</h4>
+        <ul>
+          <li><a href="https://apps.apple.com/us/app/healthy-eats/id6756924496" target="_blank" rel="noopener">Healthy Eat's</a></li>
+          <li><a href="https://healthy-e.app" target="_blank" rel="noopener">Healthy-E Society</a></li>
+          <li><a href="https://healthy-e.store" target="_blank" rel="noopener">Healthy-E Store</a></li>
+          <li><a href="https://echoverse-eta.vercel.app" target="_blank" rel="noopener">EchoVerse</a></li>
+          <li><a href="crosstel-demo.html" target="_blank" rel="noopener">Crosstel</a></li>
+          <li><a href="https://balloon-wars-slots.vercel.app" target="_blank" rel="noopener">Balloon Wars</a></li>
+          <li><a href="https://uncms.llc" target="_blank" rel="noopener">UNCMS</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Neeka Chisholm. All rights reserved.</p>
+      <p class="footer-tagline">Beautifully & Reliably Built</p>
+      <p style="font-size:12px;color:var(--muted)">Rosedale, MD · <a href="mailto:c.neeka627@gmail.com">c.neeka627@gmail.com</a></p>
+    </div>
+  </div>
+</footer>
+<!-- ─── MY BOT WIDGET ─── -->
+<div id="bot-panel" role="dialog" aria-label="MY BOT — contact assistant">
+  <div class="bot-panel-header">
+    <img src="mybot-icon-256.png" alt="MY BOT" />
+    <div class="bot-panel-title">
+      <div class="bot-panel-name">MY BOT</div>
+      <div class="bot-panel-status">Neeka's assistant</div>
+    </div>
+    <button type="button" class="bot-panel-close" onclick="toggleBot(false)" aria-label="Close">✕</button>
+  </div>
+  <div class="bot-panel-body">
+    <div class="bot-message">Hey, I'm MY BOT 👋 Neeka's away from the keyboard right now — here's the fastest way to reach her:</div>
+    <div class="bot-actions">
+      <a href="sms:+14109342412" class="bot-action-btn bot-action-primary">
+        <span class="bot-action-icon">💬</span>
+        <span class="bot-action-text">Text Neeka Now<span class="bot-action-sub">For anything urgent — direct &amp; immediate</span></span>
+      </a>
+      <a href="mailto:c.neeka627@gmail.com?subject=Hello%20from%20your%20portfolio%20site" class="bot-action-btn bot-action-secondary">
+        <span class="bot-action-icon">✉️</span>
+        <span class="bot-action-text">Leave an Email<span class="bot-action-sub">Busy right now — she'll reply within 24 hrs</span></span>
+      </a>
+    </div>
+    <div class="bot-panel-footnote">Prefer to book time instead? <a href="/links#contact" style="color:var(--teal-dk);font-weight:600">Go to Contact →</a></div>
+  </div>
+</div>
+
+<button type="button" id="bot-fab" onclick="toggleBot()" aria-label="Open MY BOT">
+  <span class="bot-fab-ping"></span>
+  <img src="mybot-icon-256.png" alt="MY BOT" />
+</button>
+
+<script src="/script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neeka Chisholm | Links & Contact</title>
+  <meta name="description" content="Find Neeka Chisholm everywhere — email, social links, live projects — or send a message to start a conversation about your next digital product." />
+  <meta property="og:title" content="Neeka Chisholm | Links & Contact" />
+  <meta property="og:description" content="Every way to find and reach Neeka Chisholm, in one place." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="/nc-computer-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Dancing+Script:wght@600;700&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<!-- ─── MOBILE NAV MENU ─── -->
+<nav id="mobile-menu" class="mobile-menu">
+  <button class="mobile-close" onclick="closeMobile()">✕</button>
+
+  <div class="mobile-menu-item">
+    <div class="mobile-menu-row">
+      <a href="/" onclick="closeMobile()" class="">About</a>
+      <button class="mobile-menu-caret" onclick="toggleMobileSub(this)" aria-label="Expand About links">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu-sub">
+      <a href="/" onclick="closeMobile()">Home</a>
+      <a href="/#about" onclick="closeMobile()">About</a>
+    </div>
+  </div>
+
+  <div class="mobile-menu-item">
+    <div class="mobile-menu-row">
+      <a href="/projects" onclick="closeMobile()" class="">Projects</a>
+      <button class="mobile-menu-caret" onclick="toggleMobileSub(this)" aria-label="Expand Projects links">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu-sub">
+      <a href="/projects#services" onclick="closeMobile()">Services</a>
+      <a href="/projects#projects" onclick="closeMobile()">Projects</a>
+    </div>
+  </div>
+
+  <div class="mobile-menu-item">
+    <div class="mobile-menu-row">
+      <a href="/experience" onclick="closeMobile()" class="">Experience</a>
+      <button class="mobile-menu-caret" onclick="toggleMobileSub(this)" aria-label="Expand Experience links">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu-sub">
+      <a href="/experience#difference" onclick="closeMobile()">Why Me</a>
+      <a href="/experience#experience" onclick="closeMobile()">Experience</a>
+    </div>
+  </div>
+
+  <div class="mobile-menu-item">
+    <div class="mobile-menu-row">
+      <a href="/links" onclick="closeMobile()" class="active">Links</a>
+      <button class="mobile-menu-caret" onclick="toggleMobileSub(this)" aria-label="Expand Links links">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu-sub">
+      <a href="/links#presence" onclick="closeMobile()">Digital Presence</a>
+      <a href="/links#contact" onclick="closeMobile()">Contact</a>
+    </div>
+  </div>
+
+  <a href="/links#contact" onclick="closeMobile()" style="margin-top:8px">Let's Talk →</a>
+</nav>
+
+<!-- ─── NAV ─── -->
+<nav id="navbar">
+  <a href="/" class="nav-logo">
+    <span class="nav-logo-text">Neeka Chisholm</span>
+  </a>
+  <ul class="nav-links">
+    <li class="nav-drop">
+      <a href="/" class="">About <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="nav-drop-panel">
+        <a href="/">Home</a>
+        <a href="/#about">About</a>
+      </div>
+    </li>
+    <li class="nav-drop">
+      <a href="/projects" class="">Projects <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="nav-drop-panel">
+        <a href="/projects#services">Services</a>
+        <a href="/projects#projects">Projects</a>
+      </div>
+    </li>
+    <li class="nav-drop">
+      <a href="/experience" class="">Experience <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="nav-drop-panel">
+        <a href="/experience#difference">Why Me</a>
+        <a href="/experience#experience">Experience</a>
+      </div>
+    </li>
+    <li class="nav-drop">
+      <a href="/links" class="active">Links <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="nav-drop-panel">
+        <a href="/links#presence">Digital Presence</a>
+        <a href="/links#contact">Contact</a>
+      </div>
+    </li>
+    <li><a href="/links#contact" class="btn-nav">Let's Talk</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="openMobile()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<section id="presence">
+  <div class="container">
+    <div class="section-label reveal">Digital Presence</div>
+    <h2 class="section-title reveal">Find me <span class="gold-text">everywhere</span></h2>
+
+    <div class="presence-grid">
+
+      <a href="https://apps.apple.com/us/app/healthy-eats/id6756924496" target="_blank" rel="noopener" class="presence-card reveal" style="transition-delay:0.05s">
+        <div class="presence-icon" style="background:rgba(30,191,160,0.1)">
+          <img src="HealthyEatsLogo.png" style="width:34px;height:34px;object-fit:contain" alt="Healthy Eat's" />
+        </div>
+        <div class="presence-info">
+          <div class="presence-name">Healthy Eat's</div>
+          <div class="presence-url">Apple App Store</div>
+        </div>
+        <div class="presence-arrow">→</div>
+      </a>
+
+      <a href="https://nc-devs.com" target="_blank" rel="noopener" class="presence-card reveal" style="transition-delay:0.1s">
+        <div class="presence-icon" style="background:rgba(30,191,160,0.1)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="presence-info">
+          <div class="presence-name">NC Devs</div>
+          <div class="presence-url">nc-devs.com</div>
+        </div>
+        <div class="presence-arrow">→</div>
+      </a>
+
+      <a href="mailto:c.neeka627@gmail.com" class="presence-card reveal" style="transition-delay:0.15s">
+        <div class="presence-icon" style="background:rgba(200,164,74,0.12)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dk)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="presence-info">
+          <div class="presence-name">Email</div>
+          <div class="presence-url">c.neeka627@gmail.com</div>
+        </div>
+        <div class="presence-arrow">→</div>
+      </a>
+
+      <a href="https://twitch.tv/NCDevNeek" target="_blank" rel="noopener" class="presence-card reveal" style="transition-delay:0.2s">
+        <div class="presence-icon" style="background:rgba(145,70,255,0.12)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#9146FF"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/></svg>
+        </div>
+        <div class="presence-info">
+          <div class="presence-name">Twitch</div>
+          <div class="presence-url">NCDevNeek</div>
+        </div>
+        <div class="presence-arrow">→</div>
+      </a>
+
+      <a href="/projects#projects" class="presence-card reveal" style="transition-delay:0.22s">
+        <div class="presence-icon" style="background:rgba(30,191,160,0.1)">
+          <img src="hz-zen-app-icon.svg" style="width:34px;height:34px;object-fit:contain" alt="Hz Zen" />
+        </div>
+        <div class="presence-info">
+          <div class="presence-name">Hz Zen</div>
+          <div class="presence-url">Coming 2026</div>
+        </div>
+        <div class="presence-arrow">→</div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/neeka-chisholm-777win1111" target="_blank" rel="noopener" class="presence-card reveal" style="transition-delay:0.25s">
+        <div class="presence-icon" style="background:rgba(10,102,194,0.15)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </div>
+        <div class="presence-info">
+          <div class="presence-name">LinkedIn</div>
+          <div class="presence-url">neeka-chisholm-777win1111</div>
+        </div>
+        <div class="presence-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+<section id="contact">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <div class="section-label reveal">Contact</div>
+        <h2 class="contact-info reveal">
+          Ready to build<br/>
+          <span class="gold-text">something real?</span>
+        </h2>
+        <p class="reveal">Whether you're launching your first app or scaling an existing platform — no-pressure conversation, real talk, and honest timelines.</p>
+
+        <div class="contact-method reveal">
+          <div class="contact-method-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contact-method-text">
+            <div class="contact-method-label">Email</div>
+            <div class="contact-method-value">c.neeka627@gmail.com</div>
+          </div>
+        </div>
+
+        <div class="contact-method reveal" style="transition-delay:0.08s">
+          <div class="contact-method-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div class="contact-method-text">
+            <div class="contact-method-label">Phone</div>
+            <div class="contact-method-value">410-934-2412</div>
+          </div>
+        </div>
+
+        <div class="contact-method reveal" style="transition-delay:0.1s">
+          <div class="contact-method-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="contact-method-text">
+            <div class="contact-method-label">Location</div>
+            <div class="contact-method-value">Rosedale, MD 21237</div>
+          </div>
+        </div>
+
+        <div class="contact-method reveal" style="transition-delay:0.2s">
+          <div class="contact-method-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div class="contact-method-text">
+            <div class="contact-method-label">Response Time</div>
+            <div class="contact-method-value">Within 24 hours</div>
+          </div>
+        </div>
+
+        <p class="footer-tagline reveal" style="margin-top:36px;font-size:19px">Beautifully &amp; Reliably Built</p>
+      </div>
+
+      <div class="contact-form reveal" style="transition-delay:0.2s">
+        <h3 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:8px">Send a Message</h3>
+        <p class="contact-form-subtitle">Book a discovery call and I'll be notified instantly.</p>
+        <div id="gc-cal-btn">
+          <script>
+          (function() {
+            var target = document.currentScript;
+            window.addEventListener('load', function() {
+              if (typeof calendar !== 'undefined' && calendar.schedulingButton) {
+                calendar.schedulingButton.load({
+                  url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ1ZKKw8cqkY3cFrLozZHwwoStpDYAmFYMD_G5V8Xm00H8HyBdFVU9-zX_ccrw6o_ENaHAmCdcVo?gv=true',
+                  color: '#C8A44A',
+                  label: 'Book a Discovery Call →',
+                  target,
+                });
+              }
+            });
+          })();
+          </script>
+        </div>
+        <div class="contact-divider">or send a direct message</div>
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" placeholder="Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="jane@example.com" required />
+          </div>
+          <div class="form-group">
+            <label>Project Type</label>
+            <select>
+              <option value="">Select a service...</option>
+              <option>Web Development</option>
+              <option>iOS Mobile App</option>
+              <option>Chrome Extension / PWA</option>
+              <option>Brand Identity</option>
+              <option>AI Integration</option>
+              <option>E-Commerce</option>
+              <option>Full Ecosystem (Bundle)</option>
+              <option>Other / Let's Talk</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Tell me about your project, goals, and timeline..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo-text" style="font-size:20px;display:block;margin-bottom:14px">Neeka Chisholm</span>
+        <p>Founder &amp; Lead Developer turning bold ideas into powerful digital realities. AI-Native. Ecosystem Ready. Radically Transparent.</p>
+        <p style="margin-top:14px;font-size:13px;color:var(--gold-dk);font-weight:600">Built with Claude · Backed by Transparency</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/projects#services">Web Development</a></li>
+          <li><a href="/projects#services">iOS Apps</a></li>
+          <li><a href="/projects#services">PWA &amp; Extensions</a></li>
+          <li><a href="/projects#services">Brand Identity</a></li>
+          <li><a href="/projects#services">AI Integration</a></li>
+          <li><a href="/projects#services">E-Commerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Projects</h4>
+        <ul>
+          <li><a href="https://apps.apple.com/us/app/healthy-eats/id6756924496" target="_blank" rel="noopener">Healthy Eat's</a></li>
+          <li><a href="https://healthy-e.app" target="_blank" rel="noopener">Healthy-E Society</a></li>
+          <li><a href="https://healthy-e.store" target="_blank" rel="noopener">Healthy-E Store</a></li>
+          <li><a href="https://echoverse-eta.vercel.app" target="_blank" rel="noopener">EchoVerse</a></li>
+          <li><a href="crosstel-demo.html" target="_blank" rel="noopener">Crosstel</a></li>
+          <li><a href="https://balloon-wars-slots.vercel.app" target="_blank" rel="noopener">Balloon Wars</a></li>
+          <li><a href="https://uncms.llc" target="_blank" rel="noopener">UNCMS</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Neeka Chisholm. All rights reserved.</p>
+      <p class="footer-tagline">Beautifully & Reliably Built</p>
+      <p style="font-size:12px;color:var(--muted)">Rosedale, MD · <a href="mailto:c.neeka627@gmail.com">c.neeka627@gmail.com</a></p>
+    </div>
+  </div>
+</footer>
+<!-- ─── MY BOT WIDGET ─── -->
+<div id="bot-panel" role="dialog" aria-label="MY BOT — contact assistant">
+  <div class="bot-panel-header">
+    <img src="mybot-icon-256.png" alt="MY BOT" />
+    <div class="bot-panel-title">
+      <div class="bot-panel-name">MY BOT</div>
+      <div class="bot-panel-status">Neeka's assistant</div>
+    </div>
+    <button type="button" class="bot-panel-close" onclick="toggleBot(false)" aria-label="Close">✕</button>
+  </div>
+  <div class="bot-panel-body">
+    <div class="bot-message">Hey, I'm MY BOT 👋 Neeka's away from the keyboard right now — here's the fastest way to reach her:</div>
+    <div class="bot-actions">
+      <a href="sms:+14109342412" class="bot-action-btn bot-action-primary">
+        <span class="bot-action-icon">💬</span>
+        <span class="bot-action-text">Text Neeka Now<span class="bot-action-sub">For anything urgent — direct &amp; immediate</span></span>
+      </a>
+      <a href="mailto:c.neeka627@gmail.com?subject=Hello%20from%20your%20portfolio%20site" class="bot-action-btn bot-action-secondary">
+        <span class="bot-action-icon">✉️</span>
+        <span class="bot-action-text">Leave an Email<span class="bot-action-sub">Busy right now — she'll reply within 24 hrs</span></span>
+      </a>
+    </div>
+    <div class="bot-panel-footnote">Prefer to book time instead? <a href="/links#contact" style="color:var(--teal-dk);font-weight:600">Go to Contact →</a></div>
+  </div>
+</div>
+
+<button type="button" id="bot-fab" onclick="toggleBot()" aria-label="Open MY BOT">
+  <span class="bot-fab-ping"></span>
+  <img src="mybot-icon-256.png" alt="MY BOT" />
+</button>
+
+<script src="/script.js" defer></script>
+</body>
+</html>

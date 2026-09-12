@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neeka Chisholm | Services & Projects</title>
+  <meta name="description" content="Web development, iOS apps, brand identity, AI integration, and e-commerce — see the services Neeka Chisholm offers and the live products she's designed, built, and shipped." />
+  <meta property="og:title" content="Neeka Chisholm | Services & Projects" />
+  <meta property="og:description" content="One developer, your entire digital ecosystem — explore Neeka's services and shipped portfolio work." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="/nc-computer-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Dancing+Script:wght@600;700&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<!-- ─── MOBILE NAV MENU ─── -->
+<nav id="mobile-menu" class="mobile-menu">
+  <button class="mobile-close" onclick="closeMobile()">✕</button>
+
+  <div class="mobile-menu-item">
+    <div class="mobile-menu-row">
+      <a href="/" onclick="closeMobile()" class="">About</a>
+      <button class="mobile-menu-caret" onclick="toggleMobileSub(this)" aria-label="Expand About links">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu-sub">
+      <a href="/" onclick="closeMobile()">Home</a>
+      <a href="/#about" onclick="closeMobile()">About</a>
+    </div>
+  </div>
+
+  <div class="mobile-menu-item">
+    <div class="mobile-menu-row">
+      <a href="/projects" onclick="closeMobile()" class="active">Projects</a>
+      <button class="mobile-menu-caret" onclick="toggleMobileSub(this)" aria-label="Expand Projects links">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu-sub">
+      <a href="/projects#services" onclick="closeMobile()">Services</a>
+      <a href="/projects#projects" onclick="closeMobile()">Projects</a>
+    </div>
+  </div>
+
+  <div class="mobile-menu-item">
+    <div class="mobile-menu-row">
+      <a href="/experience" onclick="closeMobile()" class="">Experience</a>
+      <button class="mobile-menu-caret" onclick="toggleMobileSub(this)" aria-label="Expand Experience links">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu-sub">
+      <a href="/experience#difference" onclick="closeMobile()">Why Me</a>
+      <a href="/experience#experience" onclick="closeMobile()">Experience</a>
+    </div>
+  </div>
+
+  <div class="mobile-menu-item">
+    <div class="mobile-menu-row">
+      <a href="/links" onclick="closeMobile()" class="">Links</a>
+      <button class="mobile-menu-caret" onclick="toggleMobileSub(this)" aria-label="Expand Links links">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu-sub">
+      <a href="/links#presence" onclick="closeMobile()">Digital Presence</a>
+      <a href="/links#contact" onclick="closeMobile()">Contact</a>
+    </div>
+  </div>
+
+  <a href="/links#contact" onclick="closeMobile()" style="margin-top:8px">Let's Talk →</a>
+</nav>
+
+<!-- ─── NAV ─── -->
+<nav id="navbar">
+  <a href="/" class="nav-logo">
+    <span class="nav-logo-text">Neeka Chisholm</span>
+  </a>
+  <ul class="nav-links">
+    <li class="nav-drop">
+      <a href="/" class="">About <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="nav-drop-panel">
+        <a href="/">Home</a>
+        <a href="/#about">About</a>
+      </div>
+    </li>
+    <li class="nav-drop">
+      <a href="/projects" class="active">Projects <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="nav-drop-panel">
+        <a href="/projects#services">Services</a>
+        <a href="/projects#projects">Projects</a>
+      </div>
+    </li>
+    <li class="nav-drop">
+      <a href="/experience" class="">Experience <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="nav-drop-panel">
+        <a href="/experience#difference">Why Me</a>
+        <a href="/experience#experience">Experience</a>
+      </div>
+    </li>
+    <li class="nav-drop">
+      <a href="/links" class="">Links <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="nav-drop-panel">
+        <a href="/links#presence">Digital Presence</a>
+        <a href="/links#contact">Contact</a>
+      </div>
+    </li>
+    <li><a href="/links#contact" class="btn-nav">Let's Talk</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="openMobile()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<section id="services">
+  <div class="container">
+    <div style="max-width:560px">
+      <div class="section-label reveal">Services</div>
+      <h2 class="section-title reveal">
+        One developer.<br/>
+        <span class="gold-text">Your entire</span> digital ecosystem.
+      </h2>
+      <p class="section-sub reveal">No juggling three contractors with three codebases. I build it all — and make it work together.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="service-card-body">
+          <h3>Web Development</h3>
+          <p>Business sites, portfolios, e-commerce, CMS-driven platforms — fully responsive, performance-optimized, and built to rank.</p>
+          <span class="service-tag">Full-Stack</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:0.1s">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-linecap="round"/></svg>
+        </div>
+        <div class="service-card-body">
+          <h3>Native iOS Apps</h3>
+          <p>App Store-ready iOS applications built with Swift — from concept and UI/UX wireframes to TestFlight and launch.</p>
+          <span class="service-tag">Swift / Xcode</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:0.2s">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--lime)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="service-card-body">
+          <h3>PWA &amp; Extensions</h3>
+          <p>Progressive web apps and Chrome extensions — productivity tools, UI enhancers, integrations — that share data with your website.</p>
+          <span class="service-tag">Ecosystem Ready</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:0.3s">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="service-card-body">
+          <h3>Brand Identity</h3>
+          <p>Logos, brand guidelines, design systems, and visual strategy that make your product instantly recognizable and trustworthy.</p>
+          <span class="service-tag">Design System</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:0.4s">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        </div>
+        <div class="service-card-body">
+          <h3>AI Integration</h3>
+          <p>Embed AI-powered features — smart assistants, recommendation engines, nutrition bots — directly into your product.</p>
+          <span class="service-tag">AI-Native</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:0.5s">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg>
+        </div>
+        <div class="service-card-body">
+          <h3>E-Commerce</h3>
+          <p>Wellness storefronts, product marketplaces, and subscription platforms — built for conversion, built to scale.</p>
+          <span class="service-tag">Commerce</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section id="projects">
+  <div class="container">
+    <div style="max-width:560px">
+      <div class="section-label reveal">Portfolio</div>
+      <h2 class="section-title reveal">
+        Products built with<br/>
+        <span class="gold-text">purpose &amp; precision</span>
+      </h2>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- FEATURED -->
+      <div class="project-card featured reveal">
+        <div class="project-thumb" style="background:#0a1a10;overflow:hidden;position:relative">
+          <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;z-index:0">
+            <source src="he-app-demo-h264.mp4" type="video/mp4" />
+          </video>
+          <span class="project-status status-live" style="z-index:3;position:absolute;top:14px;right:14px">● Live on App Store</span>
+        </div>
+        <div class="project-body">
+          <span class="project-flagship">★ Flagship Project</span>
+          <video autoplay muted loop playsinline style="width:42px;height:42px;border-radius:50%;object-fit:cover;display:block;margin-bottom:12px;border:2px solid rgba(200,164,74,0.4);box-shadow:0 2px 12px rgba(200,164,74,0.25)">
+            <source src="he-app-demo-h264.mp4" type="video/mp4" />
+          </video>
+          <h3>Healthy Eat's</h3>
+          <p>All-in-one wellness companion app with AI health assistance, smart meal planning, barcode scanning, and curated wellness product marketplace. Live on the Apple App Store with thousands of active users.</p>
+          <div class="project-tags">
+            <span class="project-tag">Native iOS</span>
+            <span class="project-tag">AI Health</span>
+            <span class="project-tag">Swift</span>
+            <span class="project-tag">App Store</span>
+          </div>
+          <a href="https://apps.apple.com/us/app/healthy-eats/id6756924496" target="_blank" rel="noopener" class="project-link">
+            View on App Store
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hz Zen -->
+      <div class="project-card reveal" style="transition-delay:0.1s">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#c8d4d8,#dce6ea)">
+          <div class="project-thumb-grid"></div>
+          <div class="project-thumb-glow" style="background:radial-gradient(ellipse at center, rgba(30,191,160,0.15) 0%, transparent 70%)"></div>
+          <img src="HZ-Zen-original-logo.png" class="project-thumb-logo" alt="Hz Zen" style="width:130px;height:130px;object-fit:contain;filter:drop-shadow(0 4px 20px rgba(0,0,0,0.25))" />
+          <span class="project-status status-coming">Coming 2026</span>
+        </div>
+        <div class="project-body">
+          <img src="hz-zen-app-icon.svg" class="project-logo-sm" alt="Hz Zen" style="width:36px;height:36px" />
+          <h3>Hz Zen</h3>
+          <p>Immersive sound therapy platform featuring binaural beats, nature soundscapes, and guided meditation. Designed for deep focus and intentional rest.</p>
+          <div class="project-tags">
+            <span class="project-tag">Sound Therapy</span>
+            <span class="project-tag">Meditation</span>
+            <span class="project-tag">Web Platform</span>
+          </div>
+          <span class="project-link" style="opacity:0.5;cursor:default">
+            In Development
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <!-- Healthy-E Society -->
+      <div class="project-card reveal" style="transition-delay:0.2s">
+        <div class="project-thumb">
+          <div class="project-thumb-grid"></div>
+          <div class="project-thumb-glow" style="background:radial-gradient(ellipse at center, rgba(181,212,41,0.1) 0%, transparent 70%)"></div>
+          <img src="HealthyEatsLogo.png" class="project-thumb-logo" alt="Healthy Eat's" />
+          <span class="project-status status-live">● Live</span>
+        </div>
+        <div class="project-body">
+          <img src="HealthyEatsLogo.png" class="project-logo-sm" alt="Healthy Eat's" />
+          <h3>Healthy-E Society</h3>
+          <p>A 12,000+ member wellness community featuring AI nutrition companion "Chat-E Charlie" and a curated wellness marketplace. Built for connection and accountability.</p>
+          <div class="project-tags">
+            <span class="project-tag">Community</span>
+            <span class="project-tag">AI Nutrition</span>
+            <span class="project-tag">Marketplace</span>
+          </div>
+          <div class="project-links">
+            <a href="https://healthy-e.app" target="_blank" rel="noopener" class="project-link">
+              Visit healthy-e.app
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://www.skool.com/healthy-e-society-2695" target="_blank" rel="noopener" class="project-link">
+              Join on Skool
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- EchoVerse -->
+      <div class="project-card reveal" style="transition-delay:0.3s">
+        <div class="project-thumb">
+          <div class="project-thumb-grid"></div>
+          <div class="project-thumb-glow" style="background:radial-gradient(ellipse at center, rgba(200,164,74,0.1) 0%, transparent 70%)"></div>
+          <svg class="project-thumb-logo" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="micGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F0D88A"/><stop offset="50%" stop-color="#C8A44A"/><stop offset="100%" stop-color="#9A7A2E"/></linearGradient>
+            </defs>
+            <rect x="28" y="10" width="24" height="36" rx="12" fill="url(#micGold)"/>
+            <path d="M16 42c0 13.255 10.745 24 24 24s24-10.745 24-24" stroke="url(#micGold)" stroke-width="4" stroke-linecap="round" fill="none"/>
+            <line x1="40" y1="66" x2="40" y2="76" stroke="url(#micGold)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="28" y1="76" x2="52" y2="76" stroke="url(#micGold)" stroke-width="4" stroke-linecap="round"/>
+            <rect x="34" y="22" width="4" height="10" rx="2" fill="rgba(255,255,255,0.35)"/>
+          </svg>
+          <span class="project-status status-live">● Live</span>
+        </div>
+        <div class="project-body">
+          <svg class="project-logo-sm" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px">
+            <defs><linearGradient id="micGold2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F0D88A"/><stop offset="50%" stop-color="#C8A44A"/><stop offset="100%" stop-color="#9A7A2E"/></linearGradient></defs>
+            <rect x="28" y="10" width="24" height="36" rx="12" fill="url(#micGold2)"/>
+            <path d="M16 42c0 13.255 10.745 24 24 24s24-10.745 24-24" stroke="url(#micGold2)" stroke-width="4" stroke-linecap="round" fill="none"/>
+            <line x1="40" y1="66" x2="40" y2="76" stroke="url(#micGold2)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="28" y1="76" x2="52" y2="76" stroke="url(#micGold2)" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <h3>EchoVerse</h3>
+          <p>A curated space for spoken word poetry, live virtual events, and creative community. Where authentic voices find their stage and their people.</p>
+          <div class="project-tags">
+            <span class="project-tag">Spoken Word</span>
+            <span class="project-tag">Live Events</span>
+            <span class="project-tag">Community</span>
+          </div>
+          <a href="https://echoverse-eta.vercel.app" target="_blank" rel="noopener" class="project-link">
+            Visit EchoVerse
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Healthy-E Store -->
+      <div class="project-card reveal" style="transition-delay:0.4s">
+        <div class="project-thumb">
+          <div class="project-thumb-grid"></div>
+          <div class="project-thumb-glow" style="background:radial-gradient(ellipse at center, rgba(30,191,160,0.1) 0%, transparent 70%)"></div>
+          <img src="HealthyEatsLogo.png" class="project-thumb-logo" alt="Healthy-E Store" />
+          <span class="project-status status-live">● Live</span>
+        </div>
+        <div class="project-body">
+          <img src="HealthyEatsLogo.png" class="project-logo-sm" alt="Healthy-E Store" />
+          <h3>Healthy-E.Store</h3>
+          <p>Premium e-commerce destination for organic superfoods, supplements, and eco-friendly lifestyle products. Curated with wellness in mind.</p>
+          <div class="project-tags">
+            <span class="project-tag">E-Commerce</span>
+            <span class="project-tag">Wellness</span>
+            <span class="project-tag">Shopify</span>
+          </div>
+          <a href="https://healthy-e.store" target="_blank" rel="noopener" class="project-link">
+            Visit the Store
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Shopper's Retreat -->
+      <div class="project-card reveal" style="transition-delay:0.5s">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#f5f0e8,#ede8dc)">
+          <div class="project-thumb-grid"></div>
+          <div class="project-thumb-glow" style="background:radial-gradient(ellipse at center, rgba(200,164,74,0.12) 0%, transparent 70%)"></div>
+          <img src="SR.logo.PNG" class="project-thumb-logo" alt="Shopper's Retreat" style="filter:drop-shadow(0 4px 16px rgba(0,0,0,0.2))" />
+          <span class="project-status status-coming">Coming 2027</span>
+        </div>
+        <div class="project-body">
+          <img src="SR.logo.PNG" class="project-logo-sm" alt="Shopper's Retreat" />
+          <h3>Shopper's Retreat</h3>
+          <p>Celebrating and empowering aging adults through accessible, thoughtful shopping experiences. Designed with dignity and ease at the forefront.</p>
+          <div class="project-tags">
+            <span class="project-tag">Accessibility</span>
+            <span class="project-tag">E-Commerce</span>
+            <span class="project-tag">Senior Tech</span>
+          </div>
+          <span class="project-link" style="opacity:0.5;cursor:default">
+            In Development
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <!-- Eat Real. Burn Fat. -->
+      <div class="project-card reveal" style="transition-delay:0.6s">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#f0ede4,#e8e4d8)">
+          <div class="project-thumb-grid"></div>
+          <div class="project-thumb-glow" style="background:radial-gradient(ellipse at center, rgba(181,212,41,0.12) 0%, transparent 70%)"></div>
+          <img src="Logo_EHLF_optimized.png" class="project-thumb-logo" alt="Eat Healthy, Lose Fat" style="width:140px;height:140px;object-fit:contain;filter:drop-shadow(0 4px 20px rgba(0,0,0,0.15))" />
+          <span class="project-status status-live">● Live on Apple Books</span>
+        </div>
+        <div class="project-body">
+          <img src="Logo_EHLF_optimized.png" class="project-logo-sm" alt="Eat Healthy, Lose Fat" style="width:36px;height:36px;object-fit:contain" />
+          <h3>Eat Real. Burn Fat.</h3>
+          <p>A practical wellness guide covering real-food nutrition, fat-loss strategies, and a free 30-day meal planner. Published on Apple Books and designed to complement the Healthy Eat's ecosystem.</p>
+          <div class="project-tags">
+            <span class="project-tag">Apple Books</span>
+            <span class="project-tag">Nutrition</span>
+            <span class="project-tag">Wellness</span>
+          </div>
+          <a href="https://books.apple.com" target="_blank" rel="noopener" class="project-link">
+            View on Apple Books
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Crosstel -->
+      <div class="project-card reveal" style="transition-delay:0.7s">
+        <div class="project-thumb" style="background-color:#EAE8E2;background-image:url('crosstel-thumb.jpg');background-size:contain;background-repeat:no-repeat;background-position:center">
+          <span class="project-status status-live">● Interactive Demo</span>
+        </div>
+        <div class="project-body">
+          <h3>Crosstel</h3>
+          <p>A hybrid athletic/industrial sneaker concept, presented as a fully interactive SVG product demo — explodable build view, twist-to-cinch dial fit, and live accent-color swapping, all hand-coded with zero images.</p>
+          <div class="project-tags">
+            <span class="project-tag">Interactive SVG</span>
+            <span class="project-tag">Product Concept</span>
+            <span class="project-tag">Micro-interactions</span>
+          </div>
+          <a href="crosstel-demo.html" target="_blank" rel="noopener" class="project-link">
+            Launch Live Demo
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Balloon Wars -->
+      <div class="project-card featured featured-end reveal" style="transition-delay:0.8s">
+        <div class="project-thumb" style="background-color:#EAE8E2;background-image:url('balloon-wars-logo.jpg');background-size:contain;background-repeat:no-repeat;background-position:center">
+          <span class="project-status status-coming">● Private Demo</span>
+        </div>
+        <div class="project-body">
+          <span class="project-flagship">★ Latest Build</span>
+          <h3>Balloon Wars (Slot Game) Demo</h3>
+          <p>An original casino-style slot game concept — 25 paylines, 3 jackpots, free spins, and a pick bonus — designed, built, and balanced independently, currently in private pre-release demonstration.</p>
+          <div class="project-tags">
+            <span class="project-tag">Casino Game</span>
+            <span class="project-tag">Game Design</span>
+            <span class="project-tag">Slot Mechanics</span>
+          </div>
+          <a href="https://balloon-wars-slots.vercel.app" target="_blank" rel="noopener" class="project-link">
+            View Private Demo
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo-text" style="font-size:20px;display:block;margin-bottom:14px">Neeka Chisholm</span>
+        <p>Founder &amp; Lead Developer turning bold ideas into powerful digital realities. AI-Native. Ecosystem Ready. Radically Transparent.</p>
+        <p style="margin-top:14px;font-size:13px;color:var(--gold-dk);font-weight:600">Built with Claude · Backed by Transparency</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/projects#services">Web Development</a></li>
+          <li><a href="/projects#services">iOS Apps</a></li>
+          <li><a href="/projects#services">PWA &amp; Extensions</a></li>
+          <li><a href="/projects#services">Brand Identity</a></li>
+          <li><a href="/projects#services">AI Integration</a></li>
+          <li><a href="/projects#services">E-Commerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Projects</h4>
+        <ul>
+          <li><a href="https://apps.apple.com/us/app/healthy-eats/id6756924496" target="_blank" rel="noopener">Healthy Eat's</a></li>
+          <li><a href="https://healthy-e.app" target="_blank" rel="noopener">Healthy-E Society</a></li>
+          <li><a href="https://healthy-e.store" target="_blank" rel="noopener">Healthy-E Store</a></li>
+          <li><a href="https://echoverse-eta.vercel.app" target="_blank" rel="noopener">EchoVerse</a></li>
+          <li><a href="crosstel-demo.html" target="_blank" rel="noopener">Crosstel</a></li>
+          <li><a href="https://balloon-wars-slots.vercel.app" target="_blank" rel="noopener">Balloon Wars</a></li>
+          <li><a href="https://uncms.llc" target="_blank" rel="noopener">UNCMS</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Neeka Chisholm. All rights reserved.</p>
+      <p class="footer-tagline">Beautifully & Reliably Built</p>
+      <p style="font-size:12px;color:var(--muted)">Rosedale, MD · <a href="mailto:c.neeka627@gmail.com">c.neeka627@gmail.com</a></p>
+    </div>
+  </div>
+</footer>
+<!-- ─── MY BOT WIDGET ─── -->
+<div id="bot-panel" role="dialog" aria-label="MY BOT — contact assistant">
+  <div class="bot-panel-header">
+    <img src="mybot-icon-256.png" alt="MY BOT" />
+    <div class="bot-panel-title">
+      <div class="bot-panel-name">MY BOT</div>
+      <div class="bot-panel-status">Neeka's assistant</div>
+    </div>
+    <button type="button" class="bot-panel-close" onclick="toggleBot(false)" aria-label="Close">✕</button>
+  </div>
+  <div class="bot-panel-body">
+    <div class="bot-message">Hey, I'm MY BOT 👋 Neeka's away from the keyboard right now — here's the fastest way to reach her:</div>
+    <div class="bot-actions">
+      <a href="sms:+14109342412" class="bot-action-btn bot-action-primary">
+        <span class="bot-action-icon">💬</span>
+        <span class="bot-action-text">Text Neeka Now<span class="bot-action-sub">For anything urgent — direct &amp; immediate</span></span>
+      </a>
+      <a href="mailto:c.neeka627@gmail.com?subject=Hello%20from%20your%20portfolio%20site" class="bot-action-btn bot-action-secondary">
+        <span class="bot-action-icon">✉️</span>
+        <span class="bot-action-text">Leave an Email<span class="bot-action-sub">Busy right now — she'll reply within 24 hrs</span></span>
+      </a>
+    </div>
+    <div class="bot-panel-footnote">Prefer to book time instead? <a href="/links#contact" style="color:var(--teal-dk);font-weight:600">Go to Contact →</a></div>
+  </div>
+</div>
+
+<button type="button" id="bot-fab" onclick="toggleBot()" aria-label="Open MY BOT">
+  <span class="bot-fab-ping"></span>
+  <img src="mybot-icon-256.png" alt="MY BOT" />
+</button>
+
+<script src="/script.js" defer></script>
+</body>
+</html>
